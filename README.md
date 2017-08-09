@@ -6,7 +6,7 @@ The library that helps you speed up PHP development.
 
 Just copy the denko folder on your project and call
 ```php
-include_once 'denko/dk.denko.php';
+require_once 'denko/dk.denko.php';
 ```
 
 _You may also want to copy some of the tools (denkoTools) in case you need them._
