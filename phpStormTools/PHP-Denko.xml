@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templateSet group="PHP-Denko">
+  <template name="df" value="/** @var $$$DAO$ DataObjects_$CLASS$ */&#10;    $$$DAO$ = Denko :: daoFactory('$CLASS$');" description="Denko::daoFactory()" toReformat="true" toShortenFQNames="true">
+    <variable name="DAO" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CLASS" expression="capitalize(String)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="JSP" value="false" />
+      <option name="SQL" value="false" />
+      <option name="PHP" value="true" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+</templateSet>
+

@@ -1,0 +1,91 @@
+/* CSS Document */
+HTML, BODY {
+	background-color:#000000;
+	background-image:url(../images/main_bkg.jpg);
+	background-position:top center;
+	background-repeat:repeat-x;
+	margin:0px;
+	padding:0px;
+}
+TABLE.mainTable {
+	width:600px;
+	height:auto;
+	background-color:#FFFFFF;
+	background-image:url(../images/box_bkg.jpg);
+	background-position:bottom;
+	background-repeat:repeat-x;
+	border:solid 1px #404040;
+	margin-top:30px;
+	/*padding:10px;*/
+}
+DIV.help {
+	width:200px;
+	text-align:left;
+	background-color:#E0E0E0;
+	padding:4px;
+	font:11px Arial, Helvetica, sans-serif;
+	color:#666666;
+	text-align:left;
+
+}
+DIV.help SPAN.checkbox{
+	padding:8px;
+	background-image:url(../images/checkbox.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+}
+DIV.help SPAN.disk{
+	padding:8px;
+	background-image:url(../images/disk.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+}
+DIV.helpButton {
+	/* Since the Fx.Slide element resets margins, we set a margin on the above element */
+	margin:0px 0px 5px 0px;
+	padding:0px;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	color:#000000;
+	text-align:right;
+	height:20px;
+	width:206px;
+}
+DIV.helpButton a{
+	font:bold 12px Arial, Helvetica, sans-serif;
+	color:#000000;
+	text-align:right;
+	text-decoration:none;
+}
+DIV.remember {
+	padding:4px;
+	font:11px Arial, Helvetica, sans-serif;
+	color:#666666;
+	text-align:left;
+	height:auto;
+}
+DIV.remember SPAN.checkbox{
+	padding:8px;
+	background-image:url(../images/checkbox.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+}
+DIV.footer {
+	position:relative;
+	width:600px;
+	margin-left: auto;
+	margin-right: auto;	
+	height:24px;
+	font:12px Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+	padding:4px 0px;
+	text-align:right;
+}
+DIV.footer a{
+	font:bold 12px Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+	text-decoration:underline;
+}
+DIV.footer a:hover{
+	color:#FF0000;
+	text-decoration:none;
+}

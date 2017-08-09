@@ -1,0 +1,12 @@
+#!/bin/bash
+cd `dirname $0`
+. common.sh
+logfile=retrySendmails.log
+
+while true; do
+	sleep 10
+	log=`php retry_sendmails.php`
+	if [ "$?" == "0" ]; then
+		log "$log" 
+	fi
+done

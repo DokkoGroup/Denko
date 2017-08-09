@@ -1,0 +1,15 @@
+;;;
+;;;
+;"{""valor"":""ESTANTERÍAS, ISOTERMOS Y FRIGORÍFICOS"",""style"":"" background-color: #E6F000;"",""colspan"":3}";;
+;;;
+;;;
+;;;
+;;MMA TOTAL;"{""valor"":0,""class"":""inputType"",""type"":1}"
+;;MMA PRIMER EJE;"{""valor"":0,""class"":""inputType"",""type"":1}"
+;;MMA SEGUNDO;"{""valor"":0,""class"":""inputType"",""type"":1}"
+;;;
+;;"{""valor"":""TARA"",""style"":""background-color: #A0E0E0;""}";"{""valor"":0,""class"":""inputType"",""type"":1}"
+;;"{""valor"":""PESO EQUIPAMIENTO INSTALADO"",""style"":""background-color:#999933;""}";"{""valor"":0,""class"":""inputType"",""type"":1}"
+;;"{""valor"":""Nº DE PLAZAS"",""style"":""background-color: #A0E0E0;""}";"{""valor"":0,""class"":""inputType"",""type"":1}"
+;;;
+;;"{""valor"":""CARGA ÚTIL"",""style"":""background-color:#FFFFC0;""}";"{""valor"":0,""formula"":""#D7/#D8"",""class"":""result"",""type"":1} "

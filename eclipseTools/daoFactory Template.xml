@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="php" deleted="false" description="Denko::daoFactory sentence" enabled="true" name="daoFactory">${dollar}dao${value1} = Denko :: daoFactory ('${value}');&#13;
+${dollar}dao${value1} instanceof DataObjects_${value};</template></templates>

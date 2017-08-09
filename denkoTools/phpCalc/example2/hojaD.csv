@@ -1,0 +1,20 @@
+;;;;;;
+;;;;;;
+"{""valor"":""MUELLES DELANTEROS"",""type"":0,""style"":""border:solid 1px #000;font-size:24px;text-align:center;"",""colspan"":3}";;;;"{""valor"":""MUELLES TRASEROS"",""type"":0,""style"":""#A3"",""colspan"":3}";;
+;;;;;;
+"{""valor"":""Dimensiones en mm"",""style"":""background-color:#339933;border:solid 1px #000;text-align:center;"",""colspan"":3}";;;;"{""valor"":""Dimensiones en mm"",""style"":""#A5"",""colspan"":3}";;
+Longitud total en vacío del muelle;"{""valor"":0,""class"":""inputType"",""type"":1}";;;Longitud total en vacío del muelle;"{""valor"":0,""class"":""inputType"",""type"":1}";
+Diámetro alambre ;"{""valor"":0,""class"":""inputType"",""type"":1}";;;Diámetro alambre ;"{""valor"":0,""class"":""inputType"",""type"":1}";
+Número espiras ;"{""valor"":0,""class"":""inputType"",""type"":1}";;;Número espiras ;"{""valor"":0,""class"":""inputType"",""type"":1}";
+Módulo de cizallamiento del material;"{""valor"":0,""class"":""inputType"",""type"":1}";;;Módulo de cizallamiento del material;"{""valor"":0,""class"":""inputType"",""type"":1}";
+Diámetro medio del muelle;"{""valor"":0,""class"":""inputType"",""type"":1}";;;Diámetro medio del muelle;"{""valor"":0,""class"":""inputType"",""type"":1}";
+MMA eje;"{""valor"":0,""class"":""inputType"",""type"":1}";;;MMA eje;"{""valor"":0,""class"":""inputType"",""type"":1}";
+K (Constante de rigidez) Kg/mm;"{""valor"":0,""formula"":""#B17/#B16"",""class"":""result"",""type"":1}";;;K (Constante de rigidez) Kg/mm;"{""valor"":0,""formula"":""#F17/#F16"",""class"":""result"",""type"":1}";
+"{""valor"":""Distancia entre espiras"",""style"":""text-align:right;""}";"{""valor"":0,""formula"":""#B15/(#B8-1)"",""class"":""result"",""type"":1}";"{""valor"":"""",""formula"":""@IF(#B13>2,'OK','MUELLE NO VÁLIDO')"",""class"":""result""}";;"{""valor"":""Distancia entre espiras"",""style"":""text-align:right;""}";"{""valor"":0,""formula"":""#F15/(#F8-1)"",""class"":""result"",""type"":1}";"{""valor"":"""",""formula"":""@IF(#F13>2,'OK','MUELLE NO VÁLIDO')"",""class"":""result""}"
+flecha del muelle a plena carga;"{""valor"":""0"",""formula"":""(#B11*0.5)/#B12"",""class"":""result-grey""}";;;flecha del muelle a plena carga;"{""valor"":""0"",""formula"":""(#F11*0.5)/#F12"",""class"":""result-grey""}";
+"{""valor"":""l del muelle comprimido"",""style"":""text-align:right;""}";"{""valor"":""0"",""formula"":""#B6-#B14"",""class"":""result-grey""}";;;"{""valor"":""l del muelle comprimido"",""style"":""text-align:right;""}";"{""valor"":""0"",""formula"":""#F6-#F14"",""class"":""result-grey""}";
+"{""valor"":""flecha máxima"",""style"":""text-align:right;""}";"{""valor"":""0"",""formula"":""#B6-(#B8*#B7)"",""class"":""result-grey""}";;;"{""valor"":""flecha máxima"",""style"":""text-align:right;""}";"{""valor"":""0"",""formula"":""#F6-(#F8*#F7)"",""class"":""result-grey""}";
+carga max muelle hasta agotar flecha;"{""valor"":""0"",""formula"":""(#B16*#B9*(#B7)*(#B7)*(#B7)*(#B7))/(8*#B8*(#B10)*(#B10)*(#B10))"",""class"":""result-grey""}";"{""valor"":"""",""formula"":""@IF((#B17*2)>#B11,'OK','MUELLE NO VÁLIDO')"",""class"":""result""}";;carga max muelle hasta agotar flecha;"{""valor"":0,""formula"":""(#F16*#F9*(#F7)*(#F7)*(#F7)*(#F7))/(8*#F8*(#F10)*(#F10)*(#F10))"",""class"":""result-grey""}";"{""valor"":"""",""formula"":""@IF((#F17*2)>#F11,'OK','MUELLE NO VÁLIDO')"",""class"":""result""}"
+;;;;;;
+;;;;;;
+"{""valor"":""grafico.jpg"",""type"":""2"",""colspan"":7}";;;;;;

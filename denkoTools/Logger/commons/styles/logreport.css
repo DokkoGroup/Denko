@@ -1,0 +1,62 @@
+TABLE.listado{
+	width: 95%;
+}
+TABLE.listado TR.header TD{
+	padding-top: 25px;
+	border-bottom: solid 2px #990000;
+	font: bold 12px  Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+	color: #990000;
+	text-align: center;
+}
+TABLE.listado TR.content TD{
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	text-align: center;
+	border-top: solid 1px #CCCCCC;
+}
+TABLE.listado TR.content TD A{
+    text-align: left;
+	color: #CC0000;
+	text-decoration: underline;
+}
+TABLE.listado TR.content TD A:hover{
+	color: #000000;
+	text-decoration: none;
+}
+TABLE.listado TR.content TD.destacado A{
+	text-align: left;
+	color: #0066CC;
+}
+
+TABLE.filtros{
+	font: bold 10px  Verdana, Arial, Helvetica, sans-serif;
+	color: #990000;	
+}
+
+SPAN.filtroLabel{
+	font: bold 10px  Verdana, Arial, Helvetica, sans-serif;
+	color: #990000;
+}
+SELECT.filtroSelect{
+	font: bold 10px  Verdana, Arial, Helvetica, sans-serif;
+	color: #990000;
+	border: solid 1px #990000;
+}
+INPUT.filtroSubmit{
+	font: bold 10px  Verdana, Arial, Helvetica, sans-serif;
+	color: #990000;
+	border: solid 1px #990000;
+}
+.filtroText{
+	font: bold 10px  Verdana, Arial, Helvetica, sans-serif;
+	color: #990000;
+	border: solid 1px #990000;
+}
+
+.masInfoTitulo{
+	font: bold 10px Verdana, Arial, Helvetica, sans-serif;
+}
+.masInfoDescrp{
+	color: blue;
+	font: 10px Verdana, Arial, Helvetica, sans-serif;
+}

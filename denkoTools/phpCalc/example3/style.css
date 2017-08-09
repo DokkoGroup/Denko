@@ -1,0 +1,61 @@
+TABLE.example {
+    width: auto;
+    height: auto;
+    border-right: solid 1px #888;
+    border-bottom: solid 1px #888;
+
+}
+
+TABLE.example TD, TABLE.example TH {
+    width: auto;
+    height: auto;
+    color: #000;
+    font: 12px Arial;
+    border-left: solid 1px #888;
+    border-top: solid 1px #888;
+    padding: 2px;
+}
+
+TABLE.example TH {
+    background-color: #cdcdcd;
+    font: bold 12px Arial;
+}
+
+INPUT {
+    border: none;
+}
+
+INPUT.submit {
+    border: solid 1px #000;
+    cursor: pointer;
+}
+
+TABLE.example TD.back {
+    background-color: #ddfac3;
+}
+
+/*-------------------------------------- Hoja D -----------------------------------------------------*/
+TD.inputType {
+    background-color: #FFFF00;
+    /* border-bottom: 1px solid black;
+border-right: 1px solid black; */
+    color: #000000;
+    text-align: right;
+}
+
+TD.inputType INPUT {
+    background-color: #FFFF00;
+    color: #000000;
+    text-align: right;
+}
+
+TD.result, TD.result INPUT, TD.result-grey {
+    background-color: #FFFF00;
+    color: #000000;
+    text-align: right;
+}
+
+TD.result-grey {
+    background-color: #969696;
+}
+

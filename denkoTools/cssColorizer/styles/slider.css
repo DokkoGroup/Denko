@@ -1,0 +1,156 @@
+div.slider {
+	width: 200px;
+	height: 16px;
+	background: #eee;
+}
+div.slider div.knob {
+	background: #000;
+	width: 16px;
+	height: 16px;
+}
+div.advanced {
+	width: 400px;
+	margin: 5px 0px;
+	background: url(../images/slider.gif) 0 center repeat-x;
+}
+div.advanced div.knob {
+	background: no-repeat center center;
+	cursor: pointer;
+}
+div#red div.knob {
+	background-image: url(../images/red.gif);
+}
+div#green div.knob {
+	background-image: url(../images/green.gif);
+}
+div#blue div.knob {
+	background-image: url(../images/blue.gif);
+}
+TABLE.colorizerSection {
+	width:400px;
+	height:auto;
+}
+TABLE.colorizerSection TD.step1{
+	text-align:left;
+	width:400px;
+	height:100px;
+	background-color:#EEEEEE;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	padding:5px;
+	color:#666666;
+	background-image:url(../images/paso1.gif);
+	background-repeat:no-repeat;
+	background-position:left top;
+}
+TABLE.colorizerSection TD.step2 {
+	text-align:left;
+	width:400px;
+	height:100px;
+	padding:10px;
+	background-color:#EEEEEE;
+	font:12px Arial, Helvetica, sans-serif;
+	padding:5px;
+	background-image:url(../images/paso2.gif);
+	background-repeat:no-repeat;
+	background-position:left top;
+}
+TABLE.step2Table {
+	width:400px;
+	height:100px;
+}
+TABLE.step2Table TD.label{
+	font:bold 12px Arial, Helvetica, sans-serif;
+	color:#666666;
+	padding:5px;
+	text-align:right;
+}
+TABLE.step2Table TD.input{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#000000;
+	padding:5px;
+	text-align:left;
+}
+TABLE.step2Table TD.input INPUT{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#000000;
+	padding-left:2px;
+	text-align:left;
+	border:solid 1px #999999;
+}
+TABLE.step2Table TD.submitButton {
+	width:100%;
+	height:24px;
+}
+DIV.submitButtonContainer {
+	width:100%;
+	height:24px;
+	position:relative;
+}
+DIV.submitButton {
+	position:absolute;
+	width:110px;
+	height:20px;
+	right:50px;
+	top:2px;
+	border:solid 1px #79AD7A;
+}
+DIV.submitButton INPUT{
+	width:100%;
+	height:20px;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	color:#003300;
+	text-align:center;
+	background-color:#1D8800;
+	border:0px;
+	vertical-align:middle;
+	background-image:url(../images/submit_bkg.gif);
+	background-position:left;
+	background-repeat:repeat-x;
+}
+TABLE.colorizerSection TD.step3 {
+	width:400px;
+	height:auto;
+}
+TABLE.step3Table {
+	width:100%;
+	height:auto;
+	padding:5px;
+	border:solid 1px #E0E0E0;
+	background-color:#FFFFFF;
+	background-image:url(../images/paso3.gif);
+	background-repeat:no-repeat;
+	background-position:left top;
+}
+TABLE.colorsList {
+	border:solid 1px #E0E0E0;
+	width:auto;
+	font:bold 12px Arial, Helvetica, sans-serif;
+	margin:10px 0px 10px 0px;
+	background-color:#FFFFFF;
+}
+DIV.colorBox {
+	float:left;
+	width:32px;
+	height:16px;
+	background-color:#000000;
+}
+A.download {
+	font:bold 14px Arial, Helvetica, sans-serif;
+	color:#339900;
+	padding-left:16px;
+	background-image: url(../images/disk.gif);
+	background-position:left center;
+	background-repeat:no-repeat;
+	line-height:16px;
+	text-decoration:underline;
+}
+A.download:hover {
+	font:bold 14px Arial, Helvetica, sans-serif;
+	color:#006600;
+	padding-left:16px;
+	background-image: url(../images/disk.gif);
+	background-position:left center;
+	background-repeat:no-repeat;
+	line-height:16px;
+	text-decoration:none;
+}

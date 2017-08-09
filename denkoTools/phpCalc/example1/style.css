@@ -1,0 +1,51 @@
+TABLE.example{
+    width: auto;
+    height:auto;
+    border-right:solid 1px #888;
+    border-bottom:solid 1px #888;
+
+}
+TABLE.example TD, TABLE.example TH{
+    width: auto;
+    height:auto;
+    color:#000;
+    font: 12px Arial;
+    border-left:solid 1px #888;
+    border-top:solid 1px #888;
+    padding: 2px;
+}
+TABLE.example TH{
+    background-color: #cdcdcd;
+    font:bold 12px Arial;
+}
+
+INPUT{
+    border: none;
+}
+INPUT.submit{
+    border: solid 1px #000;
+    cursor:pointer;
+}
+
+TABLE.example TD.back{
+    background-color: #ddfac3;
+}
+
+/*-------------------------------------- Hoja C -----------------------------------------------------*/
+TD.inputType{
+    background-color: #CC9CCC;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    color: #000000;
+    text-align: right;
+}
+TD.inputType INPUT{
+    background-color: #CC9CCC;
+    color: #000000;
+    text-align: right;
+}
+TD.result, TD.result INPUT{
+    background-color:#FFFFC0;
+    color: #000000;
+    text-align: right;
+}
