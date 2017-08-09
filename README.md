@@ -2,7 +2,7 @@
 The library that helps you speed up PHP development.
 
 
-###How to Install
+# How to Install
 
 Just copy the denko folder on your project and call
 ```php
