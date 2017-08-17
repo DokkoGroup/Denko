@@ -942,7 +942,7 @@ class Denko{
      * @access public
      * @return void
      */
-    public static function print_r($elem,$max_level=10,$print_nice_stack=array()){
+    public static function print_r($elem,$max_level=10,$print_nice_stack=array(),$class='denko_print_r'){
         if(is_array($elem) || is_object($elem)){
             if(in_array($elem,$print_nice_stack,true)){
                 echo "<font color=red>RECURSION</font>";
@@ -954,12 +954,12 @@ class Denko{
                 return;
             }
             $max_level--;
-            echo "<table border=1 cellspacing=0 cellpadding=3 width=100%>";
+            echo '<table border=1 width=100% class="'.$class.'">';
             if(is_array($elem)){
-                echo '<tr><td colspan=2 style="background-color:#333333;"><strong><font color=white>ARRAY</font></strong></td></tr>';
+                echo '<thead><td colspan=2 style="padding:5px;background-color:#333333;"><strong><font color=white>ARRAY</font></strong></td></thead>';
             }
             else{
-                echo '<tr><td colspan=2 style="background-color:#333333;"><strong><font color=white>OBJECT Type: '.get_class($elem).'</font></strong></td></tr>';
+                echo '<thead><td colspan=2 style="padding:5px;background-color:#333333;"><strong><font color=white>OBJECT Type: '.get_class($elem).'</font></strong></td></thead>';
             }
             $color=0;
             foreach($elem as $k => $v){
@@ -969,8 +969,8 @@ class Denko{
                 else{
                     $rgb=($color++%2)?"#8888BB":"#BBBBFF";
                 }
-                echo '<tr><td valign="top" style="width:40px;background-color:'.$rgb.';"><strong>'.$k."</strong></td><td>";
-                Denko::print_r($v,$max_level,$print_nice_stack);
+                echo '<tr><td valign="top" style="padding:5px;width:40px;background-color:'.$rgb.';"><strong>'.$k.'</strong></td><td style="padding:5px;">';
+                self::print_r($v,$max_level,$print_nice_stack);
                 echo "</td></tr>";
             }
             echo "</table>";
