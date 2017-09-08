@@ -2,12 +2,12 @@
 
 // Denko Internationalization Manager
 
-class i10n {
+class L10N {
 	public static $current;
 	public static $currentLang;
 	public static $cache;
 
-	public static function setLang($lang,$context="main",$folder="./i10n"){
+	public static function setLang($lang,$context="main",$folder="./L10N"){
 		self::$currentLang = $lang;
 		if(!isset(self::$cache)) self::$cache=array();
 
@@ -32,8 +32,8 @@ class i10n {
 }
 
 function _t($msg, $p1=null, $p2=null, $p3=null, $p4=null, $p5=null){
-	if(isset(i10n::$current[$msg])) {
-		$msg = i10n::$current[$msg];
+	if(isset(L10N::$current[$msg])) {
+		$msg = L10N::$current[$msg];
 	}else{
 		// echo "String not found: ".$msg; exit;
 	}
@@ -47,8 +47,8 @@ function _jst($msg, $p1=null, $p2=null, $p3=null, $p4=null, $p5=null){
 }
 
 function _tc($msg, $context, $p1=null, $p2=null, $p3=null, $p4=null, $p5=null){
-	if(isset(i10n::$cache[i10n::$currentLang][$msg])) {
-		$msg = i10n::$cache[i10n::$currentLang][$msg];
+	if(isset(L10N::$cache[L10N::$currentLang][$msg])) {
+		$msg = L10N::$cache[L10N::$currentLang][$msg];
 		// echo "String not found: ".$msg; exit;
 	}
 	if($p1!=null) return sprintf($msg, $p1, $p2, $p3, $p4, $p5);
