@@ -4,7 +4,7 @@
         <title>PHPCalc - Example2</title>
         <meta http-equiv="content-language" content="es-AR" />
         <meta name="copyright" content="Copyright 2007-2012. Dokko Group." />
-        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
     </head>
     <body>

@@ -830,7 +830,7 @@ class Denko{
         # ASCII 13 (0x0D): un retorno de carro.
         # ASCII 0 (0x00): el byte NULL.
         # ASCII 11 (0x0B): un tabulador vertical.
-        # ASCII 160 (0xA0): al aplicar html_entity_decode, los espacios (&nbsp;) los reemplaza por ASCII 160 (0xa0) y no por ASCII 32 (0x20), debido a que usa el charset ISO 8859-1
+        # ASCII 160 (0xA0): al aplicar html_entity_decode, los espacios (&nbsp;) los reemplaza por ASCII 160 (0xa0) y no por ASCII 32 (0x20), debido a que usa el charset UTF-8
         $charlist = "\x20\x09\x0A\x0D\x00\x0B\xA0";
 
         # Retorno el trim, usando el listado de caracteres
@@ -846,7 +846,7 @@ class Denko{
      * @access public
      * @return string cadena de texto con todos los caracteres en minúsculas
      */
-    public static function lower($string, $charset = 'ISO-8859-1'){
+    public static function lower($string, $charset = 'UTF-8'){
         return mb_convert_case($string,MB_CASE_LOWER,$charset);
     }
 
@@ -859,7 +859,7 @@ class Denko{
      * @access public
      * @return string cadena de texto con todos los caracteres en mayúsculas
      */
-    public static function upper($string, $charset = 'ISO-8859-1'){
+    public static function upper($string, $charset = 'UTF-8'){
         return mb_convert_case($string,MB_CASE_UPPER,$charset);
     }
 
@@ -872,7 +872,7 @@ class Denko{
      * @access public
      * @return string
      */
-    public static function capitalize($string, $charset = 'ISO-8859-1'){
+    public static function capitalize($string, $charset = 'UTF-8'){
         return mb_convert_case($string,MB_CASE_TITLE,$charset);
     }
 
@@ -886,7 +886,7 @@ class Denko{
      * @return string cadena de texto con el primer caracter en mayúscula
      * @link http://docs.php.net/manual/en/function.ucfirst.php#84122
      */
-    public static function ucfirst($string, $charset = 'ISO-8859-1'){
+    public static function ucfirst($string, $charset = 'UTF-8'){
         return mb_strtoupper(mb_substr($string,0,1,$charset)).mb_substr($string,1,mb_strlen($string),$charset);
     }
 

@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>DokkoLogger{if $title} - {$title}{/if}</title>
-        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         {dk_include file="styles/main.css"}
     </head>
     <body>

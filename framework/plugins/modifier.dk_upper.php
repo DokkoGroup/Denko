@@ -21,7 +21,7 @@
  * @return string
  */
 ################################################################################
-function smarty_modifier_dk_upper($string,$charset = 'ISO-8859-1'){
+function smarty_modifier_dk_upper($string,$charset = 'UTF-8'){
     return Denko::upper($string,$charset);
 }
 ################################################################################

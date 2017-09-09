@@ -21,7 +21,7 @@
  * @return string
  */
 ################################################################################
-function smarty_modifier_dk_lower($string,$charset = 'ISO-8859-1'){
+function smarty_modifier_dk_lower($string,$charset = 'UTF-8'){
     return Denko::lower($string,$charset);
 }
 ################################################################################
