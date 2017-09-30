@@ -992,6 +992,9 @@ class Denko{
         elseif($elem === ""){
             echo "<font color=green>EMPTY STRING</font>";
         }
+        elseif($elem instanceof __PHP_Incomplete_Class){
+            echo "<strong><font color=red>__PHP_Incomplete_Class</strong>";
+        }
         else{
             echo str_replace("\n","<strong><font color=red>*</font></strong><br>\n",$elem);
         }
