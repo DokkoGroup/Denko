@@ -1330,6 +1330,57 @@ class Denko{
 		$c->query('SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED');
 	}
 
+    /**
+    * Obtiene un objecto conexión a la base de datos.
+    *
+    * @static
+    * @access public
+    * @return object
+    */
+    public static function getConnection() {
+        $db = new DB_DataObject();
+        $connection = & $db->getDatabaseConnection();
+        return $connection;
+    }
+
+    /**
+    * Inicia una transacción en MySQL.
+    *
+    * @param object $connection Conexión a MySQL
+    * @static
+    * @access public
+    * @return object
+    */
+    public static function beginTransaction($connection) {
+        $connection->autoCommit(false);
+        $connection->query("START TRANSACTION");
+    }
+
+    /**
+    * Realiza un Commit sobre una transacción de MySQL.
+    *
+    * @param object $connection Conexión a MySQL
+    * @static
+    * @access public
+    * @return object
+    */
+    public static function commitTransaction($connection) {
+        $connection->query("COMMIT");
+        $connection->autoCommit(true);
+    }
+
+    /**
+    * Realiza un Rollback sobre una transacción de MySQL.
+    *
+    * @param object $connection Conexión a MySQL
+    * @static
+    * @access public
+    * @return object
+    */
+    public static function rollbackTransaction($connection) {
+        $connection->query("ROLLBACK");
+        $connection->autoCommit(true);
+    }
 }
 
 /**
