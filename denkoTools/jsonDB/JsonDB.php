@@ -1,0 +1,55 @@
+<?php
+
+require_once dirname(__FILE__).'/../denko/dk.denko.php';
+
+class JsonDB {
+
+	///////////////////////////////////////////////////////////////////////////
+	
+	private static $CACHE_JSONDB = array();
+
+	///////////////////////////////////////////////////////////////////////////
+
+	private static function &getJsonDB($name){
+		if(isset(self::$CACHE_JSONDB[$name])) return self::$CACHE_JSONDB[$name];
+		$fName = dirname(__FILE__).'/../jsonDB/'.$name;
+		if(!file_exists($fName)) $fName=$fName.'.json';
+		if(!file_exists($fName)) {
+			throw new Exception("Can't find jsonDB file ".$name, 1);
+		}
+		@$data = json_decode(file_get_contents($fName),true);
+		if(empty($data)) $data = array();
+		self::$CACHE_JSONDB[$name] = $data;
+		return $data;
+	}
+
+	///////////////////////////////////////////////////////////////////////////
+
+	public static function getByID($dbName, $id) {
+		$db = self::getJsonDB($dbName);
+		if(!isset($db[$id])) return null;
+		return $db[$id];
+	}
+
+	///////////////////////////////////////////////////////////////////////////
+
+	public static function getFullDB($dbName) {
+		return self::getJsonDB($dbName);
+	}
+
+	///////////////////////////////////////////////////////////////////////////
+
+	public static function __callStatic($name, $arguments) {
+		$aux = explode('_',$name,2);
+		if(count($aux)!=2 || $aux[0]!='getFull') {
+			throw new Exception("Call to unkown function JsonDB::$name", 1);
+		}
+		if(count($arguments)>0) {
+			throw new Exception("JsonDB::$name requires no arguments", 1);
+		}
+		return self::getJsonDB($aux[1]);
+    }
+
+	///////////////////////////////////////////////////////////////////////////
+
+}
