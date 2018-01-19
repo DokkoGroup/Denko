@@ -177,7 +177,7 @@ class Denko{
      * @return boolean
      */
     public static function hasEmailFormat($email){
-        return preg_match ( '/^[A-Z0-9._%\-]+@[A-Z0-9._%\-]+\.[A-Z]{2,4}$/i', $email);
+        return filter_var($email, FILTER_VALIDATE_EMAIL)!==false;
     }
 
     /**
