@@ -954,6 +954,22 @@ class Denko{
 	}
 
 	/**
+	 * Hace trim recursivo de todos los strings de un array
+	 *
+	 * @param array &$elem arreglo que trimmear
+	 * @static
+	 * @access public
+	 * @return void
+	 */
+	public static function arrayTrim(&$elem,$k=null){
+		if(is_array($elem)){
+			array_walk($elem,array('Denko','arrayTrim'));
+			return;
+		}
+		if(is_string($elem)) $elem=trim($elem);
+	}
+
+	/**
 	 * Muestra el contenido de un objeto similar al print_r, pero de manera más amigable
 	 *
 	 * @static
