@@ -337,7 +337,7 @@ class Denko{
 		$segundos=$secs%60;
 		$minutos=(int)($secs/60)%60;
 		$horas=(int)($secs/3600)%24;
-		$dias=(int)($secs/86400)%24;
+		$dias=(int)($secs/86400);
 
 		if($dias==0){
 			$dias='';
