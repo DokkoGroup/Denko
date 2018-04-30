@@ -331,8 +331,10 @@ class Denko{
 	 * @access public
 	 * @return string
 	 */
-	public static function secsToDate($secs, $fullhour=false){
-		$signo=($secs<0)?'-':'';
+	public static function secsToDate($secs, $fullhour=false, $epoch = null, $showSign = true){
+		if($epoch=='now') $epoch = time();
+		if($epoch!==null) $secs = $secs - $epoch;
+		$signo=($showSign && $secs<0)?'-':'';
 		$secs=abs($secs);
 		$segundos=$secs%60;
 		$minutos=(int)($secs/60)%60;
