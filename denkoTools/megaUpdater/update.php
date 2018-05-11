@@ -26,8 +26,7 @@ define("R_IMPORTANT",6);
 ////////////////////////////////////////////////////////////////////////////////
 // Funciones globales
 
-global $mysqlError,$mysqlErrno,$muTransactionEnabled;
-$muTransactionEnabled=true;
+global $mysqlError,$mysqlErrno;
 $mysqlError='';
 $mysqlErrno=0;
 
@@ -94,13 +93,13 @@ function getConnectionInfo(){
         report('Error en el archivo DB.ini',R_ERROR);
         exit(7);
     }
-    $path=str_replace('mysqli://','',$arr['database']);
-    $path=str_replace('mysql://','',$path);
-    list($usuario,$db)=explode('@',$path);
-    $arrayTemp=explode(':',$usuario);
+    $path=str_replace("mysqli://","",$arr['database']);
+    $path=str_replace("mysql://","",$path);
+    list($usuario,$db)=explode("@",$path);
+    $arrayTemp=explode(":",$usuario);
     $res['user']=$arrayTemp[0];
     $res['pass']=isset($arrayTemp[1])?$arrayTemp[1]:'';
-    list($res['host'],$res['db'])=explode('/',$db);
+    list($res['host'],$res['db'])=explode("/",$db);
     return $res;
 }
 
@@ -111,7 +110,7 @@ function getDbLink(){
         report('No me pude conectar a la base de datos',R_ERROR);
         exit(2);
     }
-    mysqli_select_db($cInfo['db'], $link);
+    mysqli_select_db($link,$cInfo['db']);
     return $link;
 }
 
@@ -123,7 +122,7 @@ function reportMysqlErrors(){
 function execQuery($query,$quiet=false,$ignoreErrors=array()){
     global $mysqlError,$mysqlErrno;
     $link = getDbLink();
-    $result = mysqli_query($query,$link);
+    $result = mysqli_query($link,$query);
     $mysqlError=mysqli_error($link);
     $mysqlErrno=mysqli_errno($link);
     mysqli_close($link);
@@ -206,17 +205,6 @@ function dropTable($tableName){
         report('"'.$tableName.'" no estaba instalado.',R_INFO);
     }
     return true;
-}
-
-function disableTransaction(){
-	global $muTransactionEnabled;
-    if($muTransactionEnabled){
-		execQuery('ROLLBACK');
-		report("Deshabilitando modo transaccional para esta version",R_INFO);
-	}else{
-		report("El modo transaccional ya se deshabilito para esta version",R_ERROR);
-	}
-	$muTransactionEnabled=false;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -338,11 +326,11 @@ function createTipoconfiguracion($id_tipoconfiguracion,$name,$description){
     $res=mysqli_fetch_row($res);
 
     if(empty($res)){
-        $query="insert into tipoconfiguracion (id_tipoconfiguracion,nombre,descripcion,aud_ins_date)
-                values($id_tipoconfiguracion,'".mysqli_real_escape_string($name)."','".mysqli_real_escape_string($description)."',now());";
+        $query="insert into tipoconfiguracion (id_tipoconfiguracion,nombre,descripcion,aud_ins_date,aud_upd_date)
+                values($id_tipoconfiguracion,'".mysqli_real_escape_string(getDbLink(),$name)."','".mysqli_real_escape_string(getDbLink(),$description)."',now(),now());";
         report('Agregando tipoconfiguracion '.$name,R_ACTION);
     }else{
-        $query="update tipoconfiguracion set aud_upd_date=now(), descripcion='".mysqli_real_escape_string($description)."', nombre='".mysqli_real_escape_string($name)."'
+        $query="update tipoconfiguracion set aud_upd_date=now(), descripcion='".mysqli_real_escape_string(getDbLink(),$description)."', nombre='".mysqli_real_escape_string(getDbLink(),$name)."'
                 where id_tipoconfiguracion = $id_tipoconfiguracion;";
         report('Actualizando tipoconfiguracion '.$name,R_ACTION);
     }
@@ -368,7 +356,7 @@ function deleteTipoconfiguracion($id_tipoconfiguracion){
 
 function createConfiguration($name,$type,$defaultValue,$restrictions,$description,$rewriteValue=false,$id_tipoconfiguracion="null"){
     global $mysqlErrno;
-    $query="select estado from configuracion where nombre='".mysqli_real_escape_string($name)."';";
+    $query="select estado from configuracion where nombre='".mysqli_real_escape_string(getDbLink(),$name)."';";
     $res=execQuery($query);
     $res=mysqli_fetch_row($res);
 
@@ -380,16 +368,16 @@ function createConfiguration($name,$type,$defaultValue,$restrictions,$descriptio
     }
 
     if(empty($res)){
-        $query="insert into configuracion (nombre,valor,tipo,metadata,estado,aud_ins_date,aud_upd_date,aud_upd_datee,descripcion,id_tipoconfiguracion)
-                values('".mysqli_real_escape_string($name)."','".mysqli_real_escape_string($defaultValue)."',".$type.", '".mysqli_real_escape_string($restrictions)."',".$estado.",now(),now(),
-                '".mysqli_real_escape_string($description)."',$id_tipoconfiguracion);";
+        $query="insert into configuracion (nombre,valor,tipo,metadata,estado,aud_ins_date,aud_upd_date,descripcion,id_tipoconfiguracion)
+                values('".mysqli_real_escape_string(getDbLink(),$name)."','".mysqli_real_escape_string(getDbLink(),$defaultValue)."',".$type.", '".mysqli_real_escape_string(getDbLink(),$restrictions)."',".$estado.",now(),now(),
+                '".mysqli_real_escape_string(getDbLink(),$description)."',$id_tipoconfiguracion);";
         report('Agregando configuracion '.$name,R_ACTION);
     }else{
-        $query="update configuracion set tipo=".$type.", metadata='".mysqli_real_escape_string($restrictions)."', aud_upd_date=now(), descripcion='".mysqli_real_escape_string($description)."', id_tipoconfiguracion = $id_tipoconfiguracion";
+        $query="update configuracion set tipo=".$type.", metadata='".mysqli_real_escape_string(getDbLink(),$restrictions)."', aud_upd_date=now(), descripcion='".mysqli_real_escape_string(getDbLink(),$description)."', id_tipoconfiguracion = $id_tipoconfiguracion";
         if($res[0]==0 || $rewriteValue){
-            $query.=", valor='".mysqli_real_escape_string($defaultValue)."', estado=".$estado;
+            $query.=", valor='".mysqli_real_escape_string(getDbLink(),$defaultValue)."', estado=".$estado;
         }
-        $query.=" where nombre='".mysqli_real_escape_string($name)."';";
+        $query.=" where nombre='".mysqli_real_escape_string(getDbLink(),$name)."';";
         report('Actualizando configuracion '.$name,R_ACTION);
     }
 
@@ -403,13 +391,13 @@ function createConfiguration($name,$type,$defaultValue,$restrictions,$descriptio
 function setConfigurationFilter($name,$filter){
     global $mysqlErrno;
     report('Seteando filtros a la configuracion '.$name,R_ACTION);
-    $query="update configuracion set filtro='".mysqli_real_escape_string($filter)."' where nombre='".mysqli_real_escape_string($name)."';";
+    $query="update configuracion set filtro='".mysqli_real_escape_string(getDbLink(),$filter)."' where nombre='".mysqli_real_escape_string(getDbLink(),$name)."';";
     return execQuery($query);
 }
 
 function deleteConfiguration($name){
     global $mysqlErrno;
-    $query="delete from configuracion where nombre='".mysqli_real_escape_string($name)."';";
+    $query="delete from configuracion where nombre='".mysqli_real_escape_string(getDbLink(),$name)."';";
     report('Eliminando configuracion '.$name,R_ACTION);
     if(!execQuery($query)){
         report('No se pudo eliminar la configuracion '.$name,R_ERROR);
@@ -534,11 +522,11 @@ function createTipoLog($name,$description,$id_tipolog,$id_padre="null"){
 
     if(empty($res)){
         $query="insert into tipolog (id_tipolog,id_padre,nombre,descripcion,aud_ins_date)
-                values(".$id_tipolog.",".$id_padre.",'".mysqli_real_escape_string($name)."','".mysqli_real_escape_string($description)."',now());";
+                values(".$id_tipolog.",".$id_padre.",'".mysqli_real_escape_string(getDbLink(),$name)."','".mysqli_real_escape_string(getDbLink(),$description)."',now());";
         report('Agregando tipolog '.$name,R_ACTION);
     }else{
-        $query="update tipolog set nombre='".mysqli_real_escape_string($name)."', aud_upd_date=now(),
-                descripcion='".mysqli_real_escape_string($description)."', id_padre=".$id_padre."
+        $query="update tipolog set nombre='".mysqli_real_escape_string(getDbLink(),$name)."', aud_upd_date=now(),
+                descripcion='".mysqli_real_escape_string(getDbLink(),$description)."', id_padre=".$id_padre."
                 where id_tipolog=".$id_tipolog.";";
         report('Actualizando tipolog '.$name,R_ACTION);
     }
@@ -588,14 +576,13 @@ while(function_exists($metodo)){
     reportSplit();
     report("Ejecutando actualizacion a version ".$version,R_IMPORTANT);
     execQuery('START TRANSACTION');
-	$muTransactionEnabled=true;
     if($metodo()){
         report("Actualizacion a version ".$version." finalizada existosamente",R_OK);
         setDbVersion($version);
-        if($muTransactionEnabled) execQuery('COMMIT');
+        execQuery('COMMIT');
     }else{
         report("Se detectaron errores actualizando a version ".$version,R_ERROR);
-        if($muTransactionEnabled) execQuery('ROLLBACK');
+        execQuery('ROLLBACK');
         exit(1);
     }
     $version++;
