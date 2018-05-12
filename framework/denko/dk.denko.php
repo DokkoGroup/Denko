@@ -194,10 +194,10 @@ class Denko{
 	/**
 	 * Retorna la URL base del proyecto: Muy util para hacer el link al home en lugar de index.php,
 	 * para implementar el plugin dk_basehref, para indicar el base href de un sitio, para
-	 * concatenar a las canonicals de un sitio, para colocar delante de un link javascript, etc. 
-	 * Contempla el caso de desarrollo en localhost vs. producción sin problemas. 
+	 * concatenar a las canonicals de un sitio, para colocar delante de un link javascript, etc.
+	 * Contempla el caso de desarrollo en localhost vs. producción sin problemas.
 	 * Con la primer llamada, cachea el resultado en una variable global para ahorrar procesamiento
-	 * en llamadas posteriores. 
+	 * en llamadas posteriores.
 	 *
 	 * @static
 	 * @access public
@@ -274,7 +274,7 @@ class Denko{
 		}
 		$_SESSION['LAST_ACTIVITY'] = time();
 	}
-	
+
 	/**
 	 * Indica que el resultado no debe ser cacheado.
 	 *
@@ -291,34 +291,40 @@ class Denko{
 	/**
 	 * Devuelve la fecha actual en un string con el formato "año-mes-dia".
 	 *
+	 * @param int ?$timestamp timestamp con el cual trabajar
 	 * @static
 	 * @access public
 	 * @return string
 	 */
-	public static function curDate(){
-		return date('Y-m-d');
+	public static function curDate($timestamp=null){
+		if($timestamp===null) return date('Y-m-d');
+		return date('Y-m-d',$timestamp);
 	}
 
 	/**
 	 * Devuelve la hora actual en un string con el formato "hora-minutos-segundos".
 	 *
+	 * @param int ?$timestamp timestamp con el cual trabajar
 	 * @static
 	 * @access public
 	 * @return string
 	 */
-	public static function curTime(){
-		return date('H:i:s');
+	public static function curTime($timestamp=null){
+		if($timestamp===null) return date('H:i:s');
+		return date('H:i:s',$timestamp);
 	}
 
 	/**
 	 * Devuelve fecha y hora actual en un string con el formato TIMESTAMP.
 	 *
+	 * @param int ?$timestamp timestamp con el cual trabajar
 	 * @static
 	 * @access public
 	 * @return string
 	 */
-	public static function curTimestamp(){
-		return date('Y-m-d H:i:s');
+	public static function curTimestamp($timestamp=null){
+		if($timestamp===null) return date('Y-m-d H:i:s');
+		return date('Y-m-d H:i:s',$timestamp);
 	}
 
 	/**
