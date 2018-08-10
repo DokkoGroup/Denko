@@ -576,7 +576,11 @@ class Denko{
 		if(!empty($smarty->_version)){ // ENTONCES ES SMARTY 2
 			$tagStack = $smarty->_tag_stack;
 		} else { // SINO ASUMO QUE ES SMARTY 3 O SUPERIOR.
-			$tagStack = $smarty->_cache['_tag_stack'];
+			if(!empty($smarty->smarty)){
+				$tagStack = $smarty->smarty->_cache['_tag_stack'];
+			}else{
+				$tagStack = $smarty->_cache['_tag_stack'];
+			}
 		}
 
 		for($i = count($tagStack)-1; $i >= 0; $i--){
