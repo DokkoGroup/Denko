@@ -1057,7 +1057,9 @@ class Denko{
 	public static function str_to_friendlyUrl($string){
 		$string = Denko::removeAccents($string);
 		$string = preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
-		return preg_replace('/[\-]{2,}/','-',$string);
+		$string = trim(preg_replace('/[\-]{2,}/','-',$string),'-');
+		if(empty($string)) return '-';
+		return $string;
 	}
 
 	/**
