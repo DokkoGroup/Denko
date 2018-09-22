@@ -1397,8 +1397,7 @@ class Denko{
 	*/
 	public static function getConnection() {
 		$db = new DB_DataObject();
-		$connection = & $db->getDatabaseConnection();
-		return $connection;
+		return $db->getDatabaseConnection();
 	}
 
 	/**
