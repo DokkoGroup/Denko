@@ -56,6 +56,12 @@ class Denko{
 			}
 		}
 		$config = parse_ini_file($iniPath,TRUE);
+		if(!empty($config['DB_DataObject']['schema_location']) && $config['DB_DataObject']['schema_location'][0]!='/'){
+			$config['DB_DataObject']['schema_location'] = dirname(__FILE__).'/'.$config['DB_DataObject']['schema_location'];
+		}
+		if(!empty($config['DB_DataObject']['class_location']) && $config['DB_DataObject']['class_location'][0]!='/'){
+			$config['DB_DataObject']['class_location'] = dirname(__FILE__).'/'.$config['DB_DataObject']['class_location'];
+		}
 		foreach($config as $class=>$values) {
 			$options = &PEAR::getStaticProperty($class,'options');
 			$options = $values;
@@ -85,6 +91,7 @@ class Denko{
 	 * @return string
 	 */
 	 public static function getHost() {
+		if (php_sapi_name() == "cli") return '';
 		return !empty ($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOST'] : $_SERVER['HTTP_HOST'];
 	 }
 
