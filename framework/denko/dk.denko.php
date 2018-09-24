@@ -226,6 +226,7 @@ class Denko{
 		if(!defined('DENKO_WEB_FOLDER')) $folder='/web';
 		else $folder=DENKO_WEB_FOLDER;
 		$arr=explode($folder.'/',$link);
+		if(count($arr)==1) $arr[0]='';
 		if($folder!='/web'){
 			if(Denko::getHost()=='localhost') $arr[0].=$folder;
 			else $arr[0]='';
