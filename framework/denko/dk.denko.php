@@ -104,6 +104,7 @@ class Denko{
 		* @return string
 	*/
 	public static function getRequestScheme() {
+		if(!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) return $_SERVER['HTTP_X_FORWARDED_PROTO'];
 		return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https':'http';
 	}
 
