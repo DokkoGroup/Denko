@@ -36,7 +36,7 @@ if (!defined('DENKO_DIR')){
  * @package Denko
  */
 class Denko{
-	
+
 	/**
 	 * Esta funcion es llamada para establecer una conexion con la base de datos.
 	 * Por defecto intenta abrir el ini "../DB.ini.local". Si no lo encuentra,
@@ -423,11 +423,11 @@ class Denko{
 		if (($realHeight < $height) && ($realWidth < $width) && !$crop){
 			return array('width' => $realWidth, 'height' => $realHeight,'sx'=>0,'sy'=>0,'sw'=>$realWidth,'sh'=>$realHeight);
 		}
-		
+
 		# Determino las proporciones del ancho y alto
 		$propWidth = $width/$realWidth;
 		$propHeight = $height/$realHeight;
-				
+
 		# Escalo la imagen segun la proporcion mas chica
 		$esVertical=$propWidth <= $propHeight;
 		if( ($esVertical && !$crop) || (!$esVertical && $crop) ){
@@ -1238,7 +1238,7 @@ class Denko{
 			} else {
 				$conf->indice2 = $indice2;
 			}
-			
+
 			if ($conf->find(true)) {
 				$DBSETTINGS[$claveCache] = ($conf->estado == 1) ? $conf->valor : '---null---';
 			} else {
@@ -1279,7 +1279,7 @@ class Denko{
 
 	/**
 	 * Modifica el valor de una configuración ya existente.
-	 * 
+	 *
 	 * @param string $name nombre de la configuración a agregar
 	 * @param string $value valor de la configuración a agregar
 	 * @param int $indice1 valor del campo indice1 de la configuración a agregar
@@ -1318,7 +1318,7 @@ class Denko{
 
 	/**
 	 * Retorna un texto sin acentos ni eñes.
-	 * 
+	 *
 	 * @param string $cadena el string a procesar
 	 * @static
 	 * @access public
@@ -1440,6 +1440,25 @@ class Denko{
 		$connection->query("ROLLBACK");
 		$connection->autoCommit(true);
 	}
+
+    /**
+    * purga archivos viejos de una carpeta
+    *
+    * @param string $folder Carpeta a purgar
+    * @param string $time Tiempo en segundos para borrar archivos mas viejos que eso
+    * @static
+    * @access public
+    * @return void
+    */
+    public static function purgeOldFiles($folder, $time) {
+        $files = glob($folder.'/*');
+        $now   = time();
+        foreach ($files as $file) {
+            if (!is_file($file)) continue;
+            if ($now - filemtime($file) >= $time) unlink($file);
+        }
+    }
+
 }
 
 /**
