@@ -18,7 +18,7 @@ Please check the documentation at the [Wiki](https://github.com/DokkoGroup/Denko
 Note: So far the documentation is only in spanish.
 
 
-##License
+# License
 
 The MIT License (MIT) - [LICENSE.md](LICENSE.md)
 
