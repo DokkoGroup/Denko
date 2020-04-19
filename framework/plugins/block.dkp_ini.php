@@ -3,7 +3,7 @@
 function smarty_block_dkp_ini($params, $content, &$smarty, &$repeat){
 
     # Obtengo el DAOLister actual
-    $daoLister = &DK_DAOLister::getDaoLister($smarty);
+    $daoLister = DK_DAOLister::getDaoLister($smarty);
 
     # En caso de apertura del bloque, seteo las variables
     if($repeat == true){

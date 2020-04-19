@@ -9,7 +9,7 @@
  */
 function smarty_block_dkr_lister($params, $content, &$smarty, &$repeat) {
 
-    $report = &DK_QueryReporter::getDaoLister($smarty);
+    $report = DK_QueryReporter::getDaoLister($smarty);
     if (!$report->fetch()) {
         $repeat = false;
     } else {

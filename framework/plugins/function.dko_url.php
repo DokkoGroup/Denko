@@ -17,6 +17,6 @@ function smarty_function_dko_url($params,&$smarty){
     }
 
     $params['name'] = strtolower($params['name']);
-    $daoLister = &DK_DAOLister::getDaoLister($smarty);
+    $daoLister = DK_DAOLister::getDaoLister($smarty);
     return $daoLister->getOrderUrl($params);
 }

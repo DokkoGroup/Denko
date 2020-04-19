@@ -12,7 +12,7 @@ require_once '../denko/dk.daolister.php';
  */
 
 function smarty_block_dk_lister($params, $content, &$smarty, &$repeat) {
-    $daoLister = &DK_DAOLister::getDaoLister($smarty);
+    $daoLister = DK_DAOLister::getDaoLister($smarty);
     if (! $daoLister->fetch()){
         $repeat = false;
         return $content . ($daoLister->isSetMultiAction() ? '
@@ -37,7 +37,7 @@ function smarty_block_dk_lister($params, $content, &$smarty, &$repeat) {
     
     if ($daoLister->isSetMultiAction() && $repeat == true){
         require_once $smarty->_get_plugin_filepath('function', 'dk_include');
-        $multiAction = &$daoLister->getMultiAction();
+        $multiAction = $daoLister->getMultiAction();
         $formName = DAOListerMultiActionPrefix . $daoLister->getName();
         echo smarty_function_dk_include(array ('file' => 'js/dk.multiaction.js', 'inline' => false, 'compress' => true ), $smarty) . '
                 <form name="' . $formName . '" action="' . basename($_SERVER ['PHP_SELF']) . '" method="get">

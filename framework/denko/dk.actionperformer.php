@@ -110,7 +110,7 @@ class DK_MultiAction{
             if($action == 'url') continue;
             $setting = explode('|',$setting);
             $this->_select->addOption($action,trim($setting[0]));
-            $option = &$this->_select->getOption($action);
+            $option = $this->_select->getOption($action);
             $option instanceof DK_HTMLOption;
             if(isset($setting[1]) && strlen(trim($setting[1])) > 0){
                 $option->addProperty('message',trim($setting[1]));
@@ -209,7 +209,7 @@ class DAOActionPerformer{
         }else{
             exit;
         }
-        $dl = &new HTTP_Download();
+        $dl = new HTTP_Download();
         $dl->setData($blob);
         $imgTmpName = 'tempimage-'.$dao->__table.'-'.$options['colimg'].$dao->$id_table;
         $dl->setContentDisposition(HTTP_DOWNLOAD_INLINE,$imgTmpName);

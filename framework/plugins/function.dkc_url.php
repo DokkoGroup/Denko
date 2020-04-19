@@ -8,8 +8,8 @@
  */
 function smarty_function_dkc_url($params,&$smarty){
     require_once $smarty->_get_plugin_filepath('function','dk_url');
-    $daoLister = &DK_DAOLister::getDaoLister($smarty);
-    $dao = &$daoLister->getDao();
+    $daoLister = DK_DAOLister::getDaoLister($smarty);
+    $dao = $daoLister->getDao();
 
     if(!isset($params['column'])){
         $params['column'] = 'id_'.$dao->__table;

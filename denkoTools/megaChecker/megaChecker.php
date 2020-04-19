@@ -331,7 +331,7 @@ if ($seguir){
         $options = $values;
     }
     $dsn = $options ['database'];
-    $db = & DB::connect($dsn);
+    $db = DB::connect($dsn);
     echo $checkeo . ' La conexión a la base de datos: ';
     if (! (PEAR::isError($db))){
         echo $span_ok . 'CONEXIÓN EXITOSA';

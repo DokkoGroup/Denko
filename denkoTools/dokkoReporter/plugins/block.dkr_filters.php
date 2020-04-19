@@ -23,7 +23,7 @@ function smarty_block_dkr_filters($params, $content, &$smarty, &$repeat) {
     }
 
     # Obtengo el próximo filtro y seteo el repeat.
-    $report = &DK_QueryReporter::getDaoLister($smarty);
+    $report = DK_QueryReporter::getDaoLister($smarty);
     if (!$filter = $report->fetchFilter()) {
         $repeat = false;
     } else {

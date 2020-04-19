@@ -7,6 +7,6 @@ function smarty_function_dko_declare($params,&$smarty){
     if(empty($params['column']) && (empty($params['onAsc']) && empty($params['onDesc']))){
         Denko::plugin_fatal_error('se debe especificar el parámetro <b>column</b>, o los parámetros <b>onAsc</b> y <b>onDesc</b>','dko_declare');
     }
-    $daolister = &DK_DAOLister::getDaoLister($smarty);
+    $daolister = DK_DAOLister::getDaoLister($smarty);
     $daolister->orderDeclare($params);
 }

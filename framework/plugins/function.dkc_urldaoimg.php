@@ -29,8 +29,8 @@ function smarty_function_dkc_urldaoimg($params,&$smarty){
     }
 
     require_once $smarty->_get_plugin_filepath('function','dk_url');
-    $daoLister = &DK_DAOLister::getDaoLister($smarty);
-    $dao = &$daoLister->getDao();
+    $daoLister = DK_DAOLister::getDaoLister($smarty);
+    $dao = $daoLister->getDao();
 
     $id_dao = 'id_'.$dao->__table;
     $params[$id_dao] = $dao->$id_dao;

@@ -7,7 +7,7 @@ function smarty_function_dkp_hrefpage($params,&$smarty){
         Denko::plugin_fatal_error('el parámetro <b>number</b> es requerido','dkp_hrefpage');
     }
 
-    $daoLister = &DK_DAOLister::getDaoLister($smarty);
+    $daoLister = DK_DAOLister::getDaoLister($smarty);
     $paramPage = $daoLister->getParamPage();
     $href = basename($_SERVER['PHP_SELF']).'?'.$paramPage.'='.$params['number'];
 

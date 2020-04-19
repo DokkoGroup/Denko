@@ -12,7 +12,7 @@ function smarty_function_dkl_getdao($params,&$smarty){
     }
 
     // Obtengo el DAOLister
-    $daoLister = &DK_DAOLister::getDaoLister($smarty);
-    $dao = &$daoLister->getDAO();
+    $daoLister = DK_DAOLister::getDaoLister($smarty);
+    $dao = $daoLister->getDAO();
     $smarty->assign($params['assign'],$dao);
 }

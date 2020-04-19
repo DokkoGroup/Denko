@@ -13,7 +13,7 @@ function smarty_function_dkl_export($params,&$smarty){
     if(empty($params['column'])){
         Denko::plugin_fatal_error('el parámetro <b>column</b> es requerido','dkl_export');
     }
-    $daoLister = &DK_DAOLister::getDaoLister($smarty);
-    $dao = &$daoLister->getDao();
+    $daoLister = DK_DAOLister::getDaoLister($smarty);
+    $dao = $daoLister->getDao();
     $smarty->assign($params['assign'],$dao->$params['column']);
 }

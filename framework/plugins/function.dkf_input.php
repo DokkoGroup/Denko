@@ -10,7 +10,7 @@ function smarty_function_dkf_input($params,&$smarty){
     }
 
     // Obtengo el DAOLister
-    $daoLister = &DK_DAOLister::getDaoLister($smarty);
+    $daoLister = DK_DAOLister::getDaoLister($smarty);
 
     // Asigno el input a su form local
     $formName = Denko::getSmartyParentTag($smarty,'dk_filters');

@@ -331,7 +331,7 @@ class DK_HTMLSelect extends DK_HTMLElement {
      */
     function setSelected($value) {
         foreach ( $this->_options as $k => $v ){
-            $option = &$this->_options [$k];
+            $option = $this->_options [$k];
             $option instanceof DK_HTMLOption;
             if ($option->getProperty('value') == $value){
                 $option->addProperty('selected');

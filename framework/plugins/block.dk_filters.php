@@ -10,7 +10,7 @@ function smarty_block_dk_filters($params, $content, &$smarty, &$repeat){
         if(empty($params['name'])){
             Denko::plugin_fatal_error('el parámetro <b>name</b> es requerido','dk_filters');
         }
-        $daoLister = &DK_DAOLister::getDaoLister($smarty);
+        $daoLister = DK_DAOLister::getDaoLister($smarty);
         $daoLister->addForm($params['name']);
 
         $params['action'] = isset($params['action'])?$params['action']: basename($_SERVER['PHP_SELF']);

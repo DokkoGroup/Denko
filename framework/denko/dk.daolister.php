@@ -359,7 +359,7 @@ class DK_DAOLister{
      */
     function getFilterInput($params){
         $this->_createFilters();
-        $filter = &$this->_filters[Denko::toValidTagName($params['name'])];
+        $filter = $this->_filters[Denko::toValidTagName($params['name'])];
         $filter instanceof DK_DAOListerFilter;        
         return $filter->getHtmlInput($params);
     }
@@ -379,7 +379,7 @@ class DK_DAOLister{
             trigger_error('<b>Denko Error:</b> el ordenamiento <b>'.$params['name'].'</b> no existe',E_USER_ERROR);
         }
 
-        $order = &$this->_orders[$name];
+        $order = $this->_orders[$name];
         $order instanceof DK_DAOListerOrder;
         return $order->getUrl($params['order']);
     }
@@ -680,14 +680,14 @@ class DK_DAOLister{
             if(substr($key,0,$prefixLength) == $prefix){
                 $orderName = substr($key,$prefixLength);
                 if(isset($this->_orders[$orderName])){
-                    $orderPriority[$orderName] = &$this->_orders[$orderName];
+                    $orderPriority[$orderName] = $this->_orders[$orderName];
                 }
             }
         }
         if(count($orderPriority) > 0){
             foreach($this->_orders as $key => $filter){
                 if(!array_key_exists($key,$orderPriority)){
-                    $orderPriority[$key] = &$this->_orders[$key];
+                    $orderPriority[$key] = $this->_orders[$key];
                 }
             }
             $this->_orders = $orderPriority;
