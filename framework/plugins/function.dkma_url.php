@@ -6,7 +6,7 @@ function smarty_function_dkma_url($params, &$smarty){
         Denko::plugin_fatal_error('para acceder a las multiacciones, el multiaction debe crearse previamente.','dkma_url');
     }
     if(empty($params['type'])){
-        Denko::plugin_fatal_error('el par·metro <b>type</b> es requerido','dkma_url');
+        Denko::plugin_fatal_error('el par√°metro <b>type</b> es requerido','dkma_url');
     }
     $multiAction = &$daoLister->getMultiAction();
     $dkName = DAOListerMultiActionPrefix.$daoLister->getName();

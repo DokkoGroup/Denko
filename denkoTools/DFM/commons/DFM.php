@@ -1,7 +1,7 @@
 <?php
 require_once '../denko/dk.denko.php';
 /**
- * Clase estatica que sirve para manejar objetos de gran tamaño y temporales.
+ * Clase estatica que sirve para manejar objetos de gran tamaÃ±o y temporales.
  *
  */
 define('DFM_DISK', 0);
@@ -12,7 +12,7 @@ define('NEXTID_FILE_NAME', 'next_id.counter');
 define('DFM_DEFAULT_READBYTES', 1048576);
 
 /**
- * Excepción arrojada cuando un método no ha sido implementado en una determianda
+ * ExcepciÃ³n arrojada cuando un mÃ©todo no ha sido implementado en una determianda
  * fuente.
  */
 class MethodNotImplementedException extends Exception {
@@ -20,11 +20,11 @@ class MethodNotImplementedException extends Exception {
     /**
      * Constructor
      *
-     * @param string $methodName Nombre del método que no está implementado
-     * @param integer $sourceType Tipo de fuente en la cual el método no está implementado
+     * @param string $methodName Nombre del mÃ©todo que no estÃ¡ implementado
+     * @param integer $sourceType Tipo de fuente en la cual el mÃ©todo no estÃ¡ implementado
      */
     public function __construct($methodName, $sourceType) {
-        $message = "El método $methodName no tiene implementación para la fuente ";
+        $message = "El mÃ©todo $methodName no tiene implementaciÃ³n para la fuente ";
         
         switch ($sourceType) {
             case DFM_DISK :
@@ -34,7 +34,7 @@ class MethodNotImplementedException extends Exception {
                 $message .= " base de datos";
                 break;
             case DFM_SESSION :
-                $message .= "sesión";
+                $message .= "sesiÃ³n";
                 break;
             default :
                 $message .= "desconocida";
@@ -192,7 +192,7 @@ class DFM {
     /**
      * Setea el contenido de un temporal.
      * Esta funcion crea un temporal, le asigna el valor $data y retorna el id del
-     * temporal si la operación fue exitosa.
+     * temporal si la operaciÃ³n fue exitosa.
      * Retorna NULL en otro caso.
      */
     static function set($data) {
@@ -394,7 +394,7 @@ class DFM {
      * momento. Si no se asigna valor al parametro $readBytes toma por defecto 1M.
      * Nota: Este parametro es ignorado en la implementacion de base de datos. La
      * cantidad de bytes a ser leidas en la implemnetacion de base de datos esta dada por
-     * el tamaño en que fue guardado el temporal.
+     * el tamaÃ±o en que fue guardado el temporal.
      */
     static function display($id, $readBytes = DFM_DEFAULT_READBYTES) {
         switch (DFM::$type_of_source) {
@@ -724,7 +724,7 @@ class DFM {
      * momento. Si no se asigna valor al parametro $readBytes toma por defecto 1M.
      * Nota: Este parametro es ignorado en la implementacion de base de datos. La
      * cantidad de bytes a ser leidas en la implemnetacion de base de datos esta dada por
-     * el tamaño en que fue guardado el temporal.
+     * el tamaÃ±o en que fue guardado el temporal.
      * Retorna el id del clon del temporal en caso de ser exitosa la clonacion; FALSE en
      * otro caso.
      */
@@ -864,10 +864,10 @@ class DFM {
      * @param integer $id_file El ID del archivo al cual se le quiere asignar el nombre
      * @param string $name El nombre del archivo que se desea asignar al archivo
      *
-     * @return boolean true en caso de la operación sea llevada a cabo exitosamente. false
+     * @return boolean true en caso de la operaciÃ³n sea llevada a cabo exitosamente. false
      * en otro caso.
      *
-     * @throws MethodNotImplementedException  En caso de no existir la implemetación de ese método
+     * @throws MethodNotImplementedException  En caso de no existir la implemetaciÃ³n de ese mÃ©todo
      * para ese tipo de fuente.
      */
     function setName($id_file, $name) {
@@ -907,15 +907,15 @@ class DFM {
     #####                              SET SIZE                                     #####
     #####################################################################################
     /**
-     * Asigna el tamaño en bytes del archivo.
+     * Asigna el tamaÃ±o en bytes del archivo.
      *
-     * @param integer $id_file El ID del archivo al cual se le quiere asignar el tamaño
-     * @param integer $size El tamaño del archivo en bytes
+     * @param integer $id_file El ID del archivo al cual se le quiere asignar el tamaÃ±o
+     * @param integer $size El tamaÃ±o del archivo en bytes
      *
-     * @return boolean true en caso de la operación sea llevada a cabo exitosamente. false
+     * @return boolean true en caso de la operaciÃ³n sea llevada a cabo exitosamente. false
      * en otro caso.
      *
-     * @throws MethodNotImplementedException  En caso de no existir la implemetación de ese método
+     * @throws MethodNotImplementedException  En caso de no existir la implemetaciÃ³n de ese mÃ©todo
      * para ese tipo de fuente.
      */
     function setSize($id_file, $size) {
@@ -961,10 +961,10 @@ class DFM {
      * @param integer $id_file El ID del archivo al cual se le quiere asignar la metadata
      * @param array $metadata La metadata del archivo. Consiste de un arreglo clave valor
      *
-     * @return boolean true en caso de la operación sea llevada a cabo exitosamente. false
+     * @return boolean true en caso de la operaciÃ³n sea llevada a cabo exitosamente. false
      * en otro caso.
      *
-     * @throws MethodNotImplementedException  En caso de no existir la implemetación de ese método
+     * @throws MethodNotImplementedException  En caso de no existir la implemetaciÃ³n de ese mÃ©todo
      * para ese tipo de fuente.
      */
     function setMetadata($id_file, $metadata) {
@@ -992,7 +992,7 @@ class DFM {
             return false;
         }
         
-        //Si están los campos DFMName, DFMSize, o DFMIndex#, los borro.
+        //Si estÃ¡n los campos DFMName, DFMSize, o DFMIndex#, los borro.
         if (isset($metadata ['DFMId'])){
             unset($metadata ['DFMId']);
         }
@@ -1028,15 +1028,15 @@ class DFM {
     #####                           GET METADATA                                    #####
     #####################################################################################
     /**
-     * Retorna la metadata del archivo cargada por el usuario. Además agrega el nombre
-     * (DFMName), el tamaño (DFMSize) y los índices (DFMIndex1, DFMIndex2 y DFMIndex3).
+     * Retorna la metadata del archivo cargada por el usuario. AdemÃ¡s agrega el nombre
+     * (DFMName), el tamaÃ±o (DFMSize) y los Ã­ndices (DFMIndex1, DFMIndex2 y DFMIndex3).
      *
      * @param integer $id_file El ID del archivo al cual se le quiere asignar la metadata
      *
-     * @return mixed La metadata del archivo requerida más los campos name, size, index1,
-     * index2 e index3 en caso de éxito. false en otro caso.
+     * @return mixed La metadata del archivo requerida mÃ¡s los campos name, size, index1,
+     * index2 e index3 en caso de Ã©xito. false en otro caso.
      *
-     * @throws MethodNotImplementedException  En caso de no existir la implemetación de ese método
+     * @throws MethodNotImplementedException  En caso de no existir la implemetaciÃ³n de ese mÃ©todo
      * para ese tipo de fuente.
      */
     function getMetadata($id_file) {
@@ -1089,9 +1089,9 @@ class DFM {
      * @param integer $id_file El ID del archivo al cual se le quiere asignar el index1
      * @param integer $index1 El valor que se desea asignar a index1
      *
-     * @return boolean true en caso de éxito false en otro caso.
+     * @return boolean true en caso de Ã©xito false en otro caso.
      *
-     * @throws MethodNotImplementedException  En caso de no existir la implemetación de ese método
+     * @throws MethodNotImplementedException  En caso de no existir la implemetaciÃ³n de ese mÃ©todo
      * para ese tipo de fuente.
      */
     function setIndex1($id_file, $index1) {
@@ -1140,9 +1140,9 @@ class DFM {
      * @param integer $id_file El ID del archivo al cual se le quiere asignar el index2
      * @param integer $index2 El valor que se desea asignar a index2
      *
-     * @return boolean true en caso de éxito false en otro caso.
+     * @return boolean true en caso de Ã©xito false en otro caso.
      *
-     * @throws MethodNotImplementedException  En caso de no existir la implemetación de ese método
+     * @throws MethodNotImplementedException  En caso de no existir la implemetaciÃ³n de ese mÃ©todo
      * para ese tipo de fuente.
      */
     function setIndex2($id_file, $index2) {
@@ -1191,9 +1191,9 @@ class DFM {
      * @param integer $id_file El ID del archivo al cual se le quiere asignar el index3
      * @param integer $index3 El valor que se desea asignar a index3
      *
-     * @return boolean true en caso de éxito false en otro caso.
+     * @return boolean true en caso de Ã©xito false en otro caso.
      *
-     * @throws MethodNotImplementedException  En caso de no existir la implemetación de ese método
+     * @throws MethodNotImplementedException  En caso de no existir la implemetaciÃ³n de ese mÃ©todo
      * para ese tipo de fuente.
      */
     function setIndex3($id_file, $index3) {
@@ -1237,18 +1237,18 @@ class DFM {
     #####                               FIND                                        #####
     #####################################################################################
     /**
-     * Busca los archivos según los parámetros pasados.
+     * Busca los archivos segÃºn los parÃ¡metros pasados.
      *
      * @param integer $index1 El valor del campo $index1 que debe tener el archivo
      * @param integer $index2 El valor del campo $index2 que debe tener el archivo
      * @param integer $index3 El valor del campo $index3 que debe tener el archivo
      *
      * @return mixed Un arreglo de metadatas de los archivos que concuerdan con los
-     * parámetros de búsqueda. Si no hay archivos que concuerden con
-     * los parámetros de búsqueda, el arreglo será vacío. Retorna false
-     * en caso de haber algún error.
+     * parÃ¡metros de bÃºsqueda. Si no hay archivos que concuerden con
+     * los parÃ¡metros de bÃºsqueda, el arreglo serÃ¡ vacÃ­o. Retorna false
+     * en caso de haber algÃºn error.
      *
-     * @throws MethodNotImplementedException  En caso de no existir la implemetación de ese método
+     * @throws MethodNotImplementedException  En caso de no existir la implemetaciÃ³n de ese mÃ©todo
      * para ese tipo de fuente.
      */
     function find($index1, $index2 = null, $index3 = null) {
@@ -1268,7 +1268,7 @@ class DFM {
 
     ##################################################################################################
     function find_DB_implementation($source, $index1, $index2, $index3) {
-        // Al menos un parámetro debe estar asignado
+        // Al menos un parÃ¡metro debe estar asignado
         if ($index1 === null && $index2 === null && $index3 === null){
             return false;
         }

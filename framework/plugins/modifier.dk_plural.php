@@ -2,35 +2,35 @@
 
 /**
  * Reglas para pluralizar un sustantivo en castellano:
- * 1. Si el sustantivo termina en vocal no tónica, se añade -s. Por ejemplo sala - salas, 
- *      coche – coches. Los sustantivos terminados en -é (acentuada) también hacen el plural
- *      en –s, por ejemplo bebé – bebés.
- * 2. Si el sustantivo termina en -í o -ú (tónicas), se añade -es. Por ejemplo esquí -
- *      esquíes, ñandú - ñandúes, marroquí – marroquíes. Se está generalizando el pluralizar
- *      estas palabras añadiendo sólo -s (esquís, ñandús) como parte de un proceso de
- *      regularización del sistema morfológico del español. Algunas gramáticas establecen
- *      que las palabras terminadas en -á (tónica) se les añade también –es al hacer el plural
- *      (faralá - faralaes).
- * 3. Si el sustantivo termina en consonante (excepto z), se añade -es. Por ejemplo papel -
- *      papeles, álbum - álbumes. La gran mayoría de las palabras que terminan en -y siguen
+ * 1. Si el sustantivo termina en vocal no tÃ³nica, se aÃ±ade -s. Por ejemplo sala - salas, 
+ *      coche Â– coches. Los sustantivos terminados en -Ã© (acentuada) tambiÃ©n hacen el plural
+ *      en Â–s, por ejemplo bebÃ© Â– bebÃ©s.
+ * 2. Si el sustantivo termina en -Ã­ o -Ãº (tÃ³nicas), se aÃ±ade -es. Por ejemplo esquÃ­ -
+ *      esquÃ­es, Ã±andÃº - Ã±andÃºes, marroquÃ­ Â– marroquÃ­es. Se estÃ¡ generalizando el pluralizar
+ *      estas palabras aÃ±adiendo sÃ³lo -s (esquÃ­s, Ã±andÃºs) como parte de un proceso de
+ *      regularizaciÃ³n del sistema morfolÃ³gico del espaÃ±ol. Algunas gramÃ¡ticas establecen
+ *      que las palabras terminadas en -Ã¡ (tÃ³nica) se les aÃ±ade tambiÃ©n Â–es al hacer el plural
+ *      (faralÃ¡ - faralaes).
+ * 3. Si el sustantivo termina en consonante (excepto z), se aÃ±ade -es. Por ejemplo papel -
+ *      papeles, Ã¡lbum - Ã¡lbumes. La gran mayorÃ­a de las palabras que terminan en -y siguen
  *      esta regla como ley - leyes, rey - reyes. Sin embargo hay excepciones como palabras
- *      cuya y en el plural suena [i], no [y]: jersey - jerséis.
- * 4. Si el sustantivo termina en -z, ésta se cambia a c y se añade -es. Por ejemplo lápiz
- *      - lápices, matiz – matices.
+ *      cuya y en el plural suena [i], no [y]: jersey - jersÃ©is.
+ * 4. Si el sustantivo termina en -z, Ã©sta se cambia a c y se aÃ±ade -es. Por ejemplo lÃ¡piz
+ *      - lÃ¡pices, matiz Â– matices.
  * 5. Los sustantivos que acaban en -s o -x y no son agudos, permanecen invariables para formar
- *      el plural, por ejemplo el viernes - los viernes, el tórax - los tórax, el virus –
- *      los virus, el cumpleaños – los cumpleaños.
- * 6. Sustantivos que sólo admiten la forma singular. Por ejemplo el cenit, el este, el oeste,
+ *      el plural, por ejemplo el viernes - los viernes, el tÃ³rax - los tÃ³rax, el virus Â–
+ *      los virus, el cumpleaÃ±os Â– los cumpleaÃ±os.
+ * 6. Sustantivos que sÃ³lo admiten la forma singular. Por ejemplo el cenit, el este, el oeste,
  *      el norte, el sur, la sed, la salud.
- * 7. Sustantivos que sólo admiten la forma plural, por ejemplo las gafas, las nupcias,
- *      las tenazas, las vacaciones, los víveres.
- * 8. Sustantivos que se pueden usar en su forma singular y plural: el pantalón/los pantalones,
+ * 7. Sustantivos que sÃ³lo admiten la forma plural, por ejemplo las gafas, las nupcias,
+ *      las tenazas, las vacaciones, los vÃ­veres.
+ * 8. Sustantivos que se pueden usar en su forma singular y plural: el pantalÃ³n/los pantalones,
  *      la tijera/las tijeras.
- * 9. Los apellidos tienden a no pluralizarse, pero se está haciendo más común la pluralización
- *      entre los hablantes de español, por ejemplo los González, los García, los Navarrete
- *      (los González, los Garcías, etc.).
- * 10. En los sustantivos compuestos, sólo el segundo elemento puede pluralizarse, siguiendo
- *      las reglas de pluralización, por ejemplo la pelirroja - las pelirrojas, el ferrocarril
+ * 9. Los apellidos tienden a no pluralizarse, pero se estÃ¡ haciendo mÃ¡s comÃºn la pluralizaciÃ³n
+ *      entre los hablantes de espaÃ±ol, por ejemplo los GonzÃ¡lez, los GarcÃ­a, los Navarrete
+ *      (los GonzÃ¡lez, los GarcÃ­as, etc.).
+ * 10. En los sustantivos compuestos, sÃ³lo el segundo elemento puede pluralizarse, siguiendo
+ *      las reglas de pluralizaciÃ³n, por ejemplo la pelirroja - las pelirrojas, el ferrocarril
  *      -los ferrocarriles. 
  */
  /**
@@ -48,11 +48,11 @@
  * - Opcionales
  *   - composedAction = Decide que hacer cuando el sustantivo es compuesto. Los posibles valores
  *                      son:
- *                      'last': Convierte a plural solo la última palabra del sustantivo.
- *                      Número: El número de palabra a pluralizar. Por ejemplo si es 0, se pluraliza
+ *                      'last': Convierte a plural solo la Ãºltima palabra del sustantivo.
+ *                      NÃºmero: El nÃºmero de palabra a pluralizar. Por ejemplo si es 0, se pluraliza
  *                              solo la primer palabra; 1 solo la segunda palabra, etc. Si este valor,
- *                              es mayor al número total de palabras, se plica la cción por defecto.
- *                      'all': Se pluralizan todas las palabras. Esta es la acción por defecto.
+ *                              es mayor al nÃºmero total de palabras, se plica la cciÃ³n por defecto.
+ *                      'all': Se pluralizan todas las palabras. Esta es la acciÃ³n por defecto.
  *
  * @author Denko Developers Group <info at dokkogroup dot com dot ar>
  * @version 1.0
@@ -114,11 +114,11 @@ function pluralizeWord($aWord) {
 }
 
 function isTonicVowel($aChar) {
-    return "í" === $aChar || "ú" === $aChar;
+    return "Ã­" === $aChar || "Ãº" === $aChar;
 }
 
 function isNonTonicVowel($aChar) {
-    return "a" === $aChar || "e" === $aChar || "i" === $aChar || "o" === $aChar || "u" === $aChar || "á" === $aChar || "é" === $aChar || "ó" === $aChar; 
+    return "a" === $aChar || "e" === $aChar || "i" === $aChar || "o" === $aChar || "u" === $aChar || "Ã¡" === $aChar || "Ã©" === $aChar || "Ã³" === $aChar; 
 }
 //Este es un algoritmo para silabizar palabras. Falta probarlo.
 //Para consultas sobre el algoritmo, consultar: \\tutifruti.dojo\tutoriales\algoritmo-syllabifier.pdf
@@ -134,8 +134,8 @@ function isNonTonicVowel($aChar) {
     $V = array('a','e','i','o','u');
     $Vs = array('a','e','o');
     $Vw = array('i','u');
-    $Vwa = array('í','ú');
-    $C = array('b','c','d','f','g','h','j','k','l','m','n','ñ','p','q','r','s','t','u','v','w','x','y','z');
+    $Vwa = array('Ã­','Ãº');
+    $C = array('b','c','d','f','g','h','j','k','l','m','n','Ã±','p','q','r','s','t','u','v','w','x','y','z');
     
     $N = $T = "";
     $i = 0;

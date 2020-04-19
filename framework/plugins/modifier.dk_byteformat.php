@@ -12,7 +12,7 @@
  * <br>
  * Name: dk_byteformat
  * <br>
- * Purpose: Muestra un número en bytes, kilobytes o megabytes
+ * Purpose: Muestra un nÃºmero en bytes, kilobytes o megabytes
  *
  * @author Dokko Group Developers Team <info at dokkogroup dot com>
  * @link http://wiki.dojo/index.php/Denko%20Plugin%3A%20modificador%20dk_byteformat {dk_byteformat} (Denko wiki)
@@ -34,4 +34,3 @@ function smarty_modifier_dk_byteformat($string){
     return number_format($string / $megabytes,2,'.','').' MB';
 }
 ################################################################################
-?>

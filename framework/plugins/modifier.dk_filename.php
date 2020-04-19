@@ -12,7 +12,7 @@
  * <br>
  * Name: dk_filename
  * <br>
- * Purpose: Convierte una cadena a nombre v·lido de archivo
+ * Purpose: Convierte una cadena a nombre v√°lido de archivo
  *
  * @author Dokko Group Developers Team <info at dokkogroup dot com>
  * @link http://wiki.dojo/index.php/Denko%20Plugin%3A%20modificador%20dk_filename {dk_filename} (Denko wiki)
@@ -24,4 +24,3 @@ function smarty_modifier_dk_filename($string, $replaceSpaces = '_'){
     return DK_File::filenameFormat($string,$replaceSpaces);
 }
 ################################################################################
-?>

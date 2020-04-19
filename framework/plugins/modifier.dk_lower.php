@@ -12,7 +12,7 @@
  * <br>
  * Name: dk_lower
  * <br>
- * Purpose: Cambia a minúsculas una cadena de texto
+ * Purpose: Cambia a minÃºsculas una cadena de texto
  *
  * @author Dokko Group Developers Team <info at dokkogroup dot com>
  * @link http://wiki.dojo/index.php/Denko%20Plugin%3A%20modificador%20dk_lower {dk_lower} (Denko wiki)
@@ -25,4 +25,3 @@ function smarty_modifier_dk_lower($string,$charset = 'UTF-8'){
     return Denko::lower($string,$charset);
 }
 ################################################################################
-?>

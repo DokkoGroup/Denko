@@ -72,7 +72,7 @@ class DK_DAOLister{
     var $_forms = array();
 
     /**
-     * Resultados por p·gina.
+     * Resultados por p√°gina.
      *
      * @access protected
      * @var integer
@@ -80,7 +80,7 @@ class DK_DAOLister{
     var $_resultsPerPage = null;
 
     /**
-     * N˙mero de ˙ltima p·gina.
+     * N√∫mero de √∫ltima p√°gina.
      *
      * @access protected
      * @var integer
@@ -88,7 +88,7 @@ class DK_DAOLister{
     var $_lastPage = 0;
     
     /**
-     * N˙mero de p·gina actual.
+     * N√∫mero de p√°gina actual.
      *
      * @access protected
      * @var integer
@@ -96,7 +96,7 @@ class DK_DAOLister{
     var $_actualPage = 0;
 
     /**
-     * N˙mero de resultados (DAOs) de la consulta
+     * N√∫mero de resultados (DAOs) de la consulta
      *
      * @access protected
      * @var integer
@@ -112,7 +112,7 @@ class DK_DAOLister{
     var $_beginResult = 0;
 
     /**
-     * Indica el nro del ˙ltimo resultado en el listado.
+     * Indica el nro del √∫ltimo resultado en el listado.
      *
      * @access protected
      * @var integer
@@ -146,16 +146,16 @@ class DK_DAOLister{
      *   </li>
      *   <li>Opcionales:
      *     <ul>
-     *       <li>table: nombre de la tabla [default: har· referencia a la tabla
-     *         que se especificÛ en el par·metro 'name']
+     *       <li>table: nombre de la tabla [default: har√° referencia a la tabla
+     *         que se especific√≥ en el par√°metro 'name']
      *       </li>
-     *       <li>config: nombre del archivo de configuraciÛn</li>
+     *       <li>config: nombre del archivo de configuraci√≥n</li>
      *       <li>configFolder: carpeta donde se aloja el archivo de configuraciones</li>
-     *       <li>query: query que se aplicar· al daolister.</li>
+     *       <li>query: query que se aplicar√° al daolister.</li>
      *       <li>groupBy: se le aplica un groupBy al daolister</li>
-     *       <li>resultsPerPage: resultados por p·gina</li>
+     *       <li>resultsPerPage: resultados por p√°gina</li>
      *       <li>orderBy: se le aplica un orderBy al daolister</li>
-     *       <li>dao: DAO que usar· el DAO Lister.</li>
+     *       <li>dao: DAO que usar√° el DAO Lister.</li>
      *     </ul>
      *   </li>
      *  </ul>
@@ -169,8 +169,8 @@ class DK_DAOLister{
         // Arreglo de seteos para los filtros:
         $this->_settings['filter_settings'] = array();
 
-        // Si EST¡ seteado el archivo de configuraciones lo cargo
-        // Si NO est· seteado el archivo de configuraciones, asumo los seteos en el tpl
+        // Si EST√Å seteado el archivo de configuraciones lo cargo
+        // Si NO est√° seteado el archivo de configuraciones, asumo los seteos en el tpl
         if(isset($settings['config'])){
             // cargo el archivo
             $settingsFromIni = parse_ini_file($this->_configFolder.$settings['config'],true);
@@ -179,11 +179,11 @@ class DK_DAOLister{
                     // Es un seteo de daolister, y doy prioridad a los seteos en el template
                     $this->_settings[$setting] = strtolower(!empty($settings[$setting])?$settings[$setting]:$value);
                 }else{
-                    // En caso que sea multiaction, cargo los seteos en el Ìndice 'dkma_settings'
+                    // En caso que sea multiaction, cargo los seteos en el √≠ndice 'dkma_settings'
                     if($setting == 'dkma'){
                         $this->_settings['dkma_settings'] = $value;
                     }
-                    // En caso que sea filtro, cargo los seteos en el Ìndice 'filter_settings'
+                    // En caso que sea filtro, cargo los seteos en el √≠ndice 'filter_settings'
                     else{
                         $this->_settings['filter_settings'][strtolower($setting)] = $value;
                     }
@@ -191,10 +191,10 @@ class DK_DAOLister{
             }
         }
 
-        // Seteo un nombre v·lido al DAOLister
+        // Seteo un nombre v√°lido al DAOLister
         $this->_settings['name'] = Denko::toValidTagName($this->_settings['name']);
 
-        // Seteo los resultados por p·gina
+        // Seteo los resultados por p√°gina
         if(isset($this->_settings['resultsPerPage'])){
             $this->_resultsPerPage = $this->_settings['resultsPerPage'];
         }
@@ -211,11 +211,11 @@ class DK_DAOLister{
     }
 
     /**
-     * Declara la creaciÛn de un filtro. Agrega seteos para la creaciÛn de un
-     * DAOLister Filter. Esta funcion es llamada ˙nicamente desde el plugin
+     * Declara la creaci√≥n de un filtro. Agrega seteos para la creaci√≥n de un
+     * DAOLister Filter. Esta funcion es llamada √∫nicamente desde el plugin
      * Smarty dkf_declare, que es para declarar un DAOLister Filter.
      *
-     * @param array $settings seteos para la declaraciÛn del filtro
+     * @param array $settings seteos para la declaraci√≥n del filtro
      * @access public
      */
     function filterDeclare($settings){
@@ -231,11 +231,11 @@ class DK_DAOLister{
     }
 
     /**
-     * Agrega seteos para la creaciÛn de un DAOLister Order. Esta funcion es
-     * llamada ˙nicamente desde el plugin Smarty dko_declare, que es para declarar
+     * Agrega seteos para la creaci√≥n de un DAOLister Order. Esta funcion es
+     * llamada √∫nicamente desde el plugin Smarty dko_declare, que es para declarar
      * un DAOLister Order.
      *
-     * @param array $settings seteos para la creaciÛn del DAOLister Order
+     * @param array $settings seteos para la creaci√≥n del DAOLister Order
      * @access public
      */
     function orderDeclare($settings){
@@ -249,7 +249,7 @@ class DK_DAOLister{
 
     /**
      * Crea los DAOLister Filter en base a las configuraciones declaradas. Esta
-     * funciÛn es invocada cuando piden el html de un input de un
+     * funci√≥n es invocada cuando piden el html de un input de un
      * DAOLister Filter o cuando comienza a ciclar el DAOLister.
      *
      * @access protected
@@ -283,8 +283,8 @@ class DK_DAOLister{
     }
 
     /**
-     * Obtiene el DAOLister m·s cercano en el stack de Smarty. Sirve en los
-     * plugins Smarty para obtener el DAOLister con el que se est· operando
+     * Obtiene el DAOLister m√°s cercano en el stack de Smarty. Sirve en los
+     * plugins Smarty para obtener el DAOLister con el que se est√° operando
      * actualmente.
      *
      * @param object &$smarty instancia Smarty actual.
@@ -350,10 +350,10 @@ class DK_DAOLister{
     }
 
     /**
-     * Retorna el cÛdigo HTML de un DAOLister Filter. Los valores en el arreglo
-     * de par·metros ser·n agregados como propiedades del input.
+     * Retorna el c√≥digo HTML de un DAOLister Filter. Los valores en el arreglo
+     * de par√°metros ser√°n agregados como propiedades del input.
      *
-     * @param array $params arreglo de par·metros
+     * @param array $params arreglo de par√°metros
      * @return string
      * @access public
      */
@@ -366,9 +366,9 @@ class DK_DAOLister{
 
     /**
      * Retorna la URL que genera el DAOLister Order. Los valores en el arreglo
-     * de par·metros ser·n agregados como par·metros GET en la URL generada.
+     * de par√°metros ser√°n agregados como par√°metros GET en la URL generada.
      *
-     * @param array $params arreglo de par·metros
+     * @param array $params arreglo de par√°metros
      * @return string
      * @access public
      */
@@ -385,10 +385,10 @@ class DK_DAOLister{
     }
 
     /**
-     * Retorna el cÛdigo HTML correspondiente a los inputs hiddens de los
+     * Retorna el c√≥digo HTML correspondiente a los inputs hiddens de los
      * DAOLister Filter que van dentro de los form.
      *
-     * @param array $params arreglo de par·metros
+     * @param array $params arreglo de par√°metros
      * @return string
      * @access public
      */
@@ -418,9 +418,9 @@ class DK_DAOLister{
     }
 
     /**
-     * FunciÛn principal del DAOLister. Aplica todos los seteos al DAO (whereAdds,
+     * Funci√≥n principal del DAOLister. Aplica todos los seteos al DAO (whereAdds,
      * orderBy, etc) provenientes de configuraciones directas en el DAOLister y
-     * los filtros, y setea las variables del paginador. Adem·s, crea los
+     * los filtros, y setea las variables del paginador. Adem√°s, crea los
      * DAOLister Filter en caso que no se hayan creado previamente.
      *
      * @access protected
@@ -467,7 +467,7 @@ class DK_DAOLister{
             }
 
             $iniLimit = 0;
-			// Se limitan los resultados por p·gina
+			// Se limitan los resultados por p√°gina
             if($this->_resultsPerPage != null){
                 $this->_setResultsPerPage();
                 $iniLimit = ($this->_actualPage-1)*$this->_resultsPerPage;
@@ -481,7 +481,7 @@ class DK_DAOLister{
             /**
              * @todo usar stripos para saber si existe la palabra "limit" en el
              * query. A diferencia de strpos, stripos no es case sensitive.
-             * stripos aparece reciÈn en PHP 5.
+             * stripos aparece reci√©n en PHP 5.
              */
             $this->_applyOrderBy();
             if($this->_resultsPerPage != null && (!isset($this->_settings['orderBy']) || (isset($this->_settings['orderBy']) && strpos($this->_settings['orderBy'],' limit ') === false))){
@@ -501,7 +501,7 @@ class DK_DAOLister{
     }
 
     /**
-     * Ejecuta el fetch para el DAO. Es p˙blica porque es llamado en el
+     * Ejecuta el fetch para el DAO. Es p√∫blica porque es llamado en el
      * plugin Smarty dk_lister.
      *
      * @return object
@@ -513,8 +513,8 @@ class DK_DAOLister{
     }
 
     /**
-     * Retorna el prefijo del DAOLister actual. Es ˙til para reconocer los
-     * par·metros en el GET que corresponden al DAOLister.
+     * Retorna el prefijo del DAOLister actual. Es √∫til para reconocer los
+     * par√°metros en el GET que corresponden al DAOLister.
      *
      * @return string
      * @access public
@@ -547,7 +547,7 @@ class DK_DAOLister{
         $dkp_vars = DK_DAOLister::getPageVars();
 
         // En caso que existan variables asignadas al template con estos nombres,
-        // se guardan para usarlos despuÈs.
+        // se guardan para usarlos despu√©s.
         foreach($dkp_vars as $dkp_var){
             $GLOBALS['DK_LISTER']['CACHED'][$dkp_var] = $smarty->get_template_vars($dkp_var);
         }
@@ -561,7 +561,7 @@ class DK_DAOLister{
     /**
      * Restaura las variables del paginador al template. En caso que hayan
      * existido variables asignadas al template con estos nombres (antes de
-     * asignar las variables), se restauran para usarlos despuÈs.
+     * asignar las variables), se restauran para usarlos despu√©s.
      *
      * @param Smarty $smarty instancia Smarty
      * @access public
@@ -576,7 +576,7 @@ class DK_DAOLister{
     /**
      * Crea el DAOLister Multiaction
      *
-     * @param array $params arreglo de par·metros
+     * @param array $params arreglo de par√°metros
      * @access public
      */
     function createMultiAction($params){
@@ -598,7 +598,7 @@ class DK_DAOLister{
     }
 
     /**
-     * Indica si fuÈ seteado el Multiaction
+     * Indica si fu√© seteado el Multiaction
      *
      * @return boolean
      * @access public
@@ -665,10 +665,10 @@ class DK_DAOLister{
     /**
      * Organiza el orden de prioridad de los ordenamientos.
      *
-     * Las prioridad de condiciones se determina en base al orden de apariciÛn
-     * de los filtros en el GET. Notar que la URL que retorna el mÈtodo 'getUrl()'
-     * de la clase 'DK_DAOListerOrder' siempre agrega su nombre como 1er par·metro.
-     * Tendr· mayor prioridad el ˙ltimo order que se haya invocado.
+     * Las prioridad de condiciones se determina en base al orden de aparici√≥n
+     * de los filtros en el GET. Notar que la URL que retorna el m√©todo 'getUrl()'
+     * de la clase 'DK_DAOListerOrder' siempre agrega su nombre como 1er par√°metro.
+     * Tendr√° mayor prioridad el √∫ltimo order que se haya invocado.
      *
      * @access protected
      */
@@ -695,7 +695,7 @@ class DK_DAOLister{
     }
 
     /**
-     * Setea la cantidad de resultados por p·gina que debe mostrar el listado.
+     * Setea la cantidad de resultados por p√°gina que debe mostrar el listado.
      *
      * @access protected
      */
@@ -716,8 +716,8 @@ class DK_DAOLister{
     }
 
     /**
-     * Obtiene el nombre del par·metro GET correspondiente a la cantidad de
-     * resultados por p·gina que mostrar· el listado.
+     * Obtiene el nombre del par√°metro GET correspondiente a la cantidad de
+     * resultados por p√°gina que mostrar√° el listado.
      *
      * @return string
      * @access protected

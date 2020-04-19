@@ -16,8 +16,8 @@
  *
  * @author Dokko Group Developers Team <info at dokkogroup dot com>
  * @link http://wiki.dojo/index.php/Denko%20Plugin%3A%20modificador%20dk_htmlwrap {dk_htmlwrap} (Denko wiki)
- * @param string $string código html
- * @param integer $length tamaño máximo de linea
+ * @param string $string cÃ³digo html
+ * @param integer $length tamaÃ±o mÃ¡ximo de linea
  * @param string $break caracter de corte
  * @return string
  */
@@ -40,4 +40,3 @@ function smarty_modifier_dk_htmlwrap($string, $length = 80, $break = "\n"){
     return implode('',$splited);
 }
 ################################################################################
-?>

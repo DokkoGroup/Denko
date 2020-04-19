@@ -4,9 +4,9 @@
  *
  */
 function smarty_function_dkf_input($params,&$smarty){
-    // Chequeo que estÈ seteado el par·metro 'nombre'
+    // Chequeo que est√© seteado el par√°metro 'nombre'
     if(empty($params['name'])){
-        Denko::plugin_fatal_error('el par·metro <b>name</b> es requerido','dkf_input');
+        Denko::plugin_fatal_error('el par√°metro <b>name</b> es requerido','dkf_input');
     }
 
     // Obtengo el DAOLister

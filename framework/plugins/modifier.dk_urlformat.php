@@ -27,4 +27,3 @@ function smarty_modifier_dk_urlformat($string){
 	return 'http://'.str_replace('http://','',trim(html_entity_decode(strip_tags($string))));
 }
 ################################################################################
-?>

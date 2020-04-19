@@ -9,8 +9,8 @@
  */
 function smarty_block_dkr_filters($params, $content, &$smarty, &$repeat) {
 
-    # Se fija si están seteados los nombres de las variables a utilizar, de
-    # ser así las declara, sino deja los nombres por defecto.
+    # Se fija si estÃ¡n seteados los nombres de las variables a utilizar, de
+    # ser asÃ­ las declara, sino deja los nombres por defecto.
     if (isset($params['declare'])) {
     	$declare = explode(',',$params['declare']);
         $name  = $declare[0];
@@ -22,7 +22,7 @@ function smarty_block_dkr_filters($params, $content, &$smarty, &$repeat) {
         $value = 'value';
     }
 
-    # Obtengo el próximo filtro y seteo el repeat.
+    # Obtengo el prÃ³ximo filtro y seteo el repeat.
     $report = &DK_QueryReporter::getDaoLister($smarty);
     if (!$filter = $report->fetchFilter()) {
         $repeat = false;

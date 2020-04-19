@@ -23,13 +23,13 @@ if($count > 0){
         }else{
             // En caso de no poder enviar el mail:
             if($sendCount == 0){
-                // indico que el mailserver está caído desde el inicio:
+                // indico que el mailserver estÃ¡ caÃ­do desde el inicio:
                 $iniServerUp = false;
             }
             // Incremento el contador de intentos:
             $daoEmail->sendtries++;
             $daoEmail->update();
-            // Marco que el mailserver se cayó en medio del bucle:
+            // Marco que el mailserver se cayÃ³ en medio del bucle:
             $endServerUp = false;
         }
     }

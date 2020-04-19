@@ -18,7 +18,7 @@
  *
  * @author Dokko Group Developers Team <info at dokkogroup dot com>
  * @link http://wiki.dokkogroup.com.ar/index.php/Denko%20Plugin%3A%20funci%F3n%20dk_config_load
- * @param array $params parámetros
+ * @param array $params parÃ¡metros
  * @param Smarty &$smarty instancia de Smarty
  */
 function smarty_function_dk_config_load($params, &$smarty){
@@ -27,7 +27,7 @@ function smarty_function_dk_config_load($params, &$smarty){
     $section = !empty($params['section']) ? $params['section'] : null;
     # Obtengo el archivo de speechs que debo cargar
     $file = 'speech.'.$lang.'.conf';
-    # En caso de cargar una sección en particular
+    # En caso de cargar una secciÃ³n en particular
     if(!empty($section)){
         $smarty->config_load($file,$section);
     } else {

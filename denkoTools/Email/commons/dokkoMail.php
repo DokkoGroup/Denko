@@ -22,21 +22,21 @@ function guardarEmail(&$mail,$fueEnviado){
 
 ###############################################################################
 /*
-    FunciÛn para enviar emails.
+    Funci√≥n para enviar emails.
 
-    Par·metros:
-      - sender:   [STRING] direcciÛn de email del remitente.
-      - to:       [STRING] direcciÛn de email del destino.
+    Par√°metros:
+      - sender:   [STRING] direcci√≥n de email del remitente.
+      - to:       [STRING] direcci√≥n de email del destino.
       - subject:  [STRING] asunto del email.
       - message:  [STRING] mensaje.
 
-    Par·metros opcionales:
+    Par√°metros opcionales:
       - replyTo:  [ARRAY|STRING] Direccion de email y nombre a quien responder
         el email.
         Arreglo con las claves "address" y "name".
         En caso de ser solo una string asume que es "address".
         DEFAULT: null.
-      - report: [BOOL] Indica si el email va a ser reportado (o sea, se grabar· en la DB)
+      - report: [BOOL] Indica si el email va a ser reportado (o sea, se grabar√° en la DB)
       - fromName: [STRING] setea el "From name" del mensaje
       - sendBeforeReport: [BOOL] indica si se debe enviar el mail antes de almacenarlo en la DB.
 */

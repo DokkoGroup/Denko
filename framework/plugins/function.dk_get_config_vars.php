@@ -12,15 +12,15 @@
  * <br>
  * Name: dk_get_config_vars
  * <br>
- * Purpose: Obtiene una configuraciÛn del archivo de texto .conf
+ * Purpose: Obtiene una configuraci√≥n del archivo de texto .conf
  * <br>
  * Input:
  * <br>
  * - Requeridos
- *    - name = nombre de la configuraciÛn.
+ *    - name = nombre de la configuraci√≥n.
  *
  * - Opcionales:
- *   - assign = nombre de variable de template donde asignar el valor de la configuraciÛn.
+ *   - assign = nombre de variable de template donde asignar el valor de la configuraci√≥n.
  *
  * Example:
  * <pre>
@@ -29,7 +29,7 @@
  *
  * @author Dokko Group Developers Team <info at dokkogroup dot com>
  * @link http://wiki.dokkogroup.com.ar/index.php/http://wiki.dojo/index.php/Denko%20Plugin%3A%20funci%F3n%20dk_get_config_vars {dk_get_config_vars} (Denko wiki)
- * @param array $params par·metros
+ * @param array $params par√°metros
  * @param Smarty &$smarty instancia de Smarty
  * @return string
  */
@@ -41,15 +41,15 @@
  */
 function smarty_function_dk_get_config_vars($params, &$smarty){
 
-    # Verifico que exista el par·metro "name"
+    # Verifico que exista el par√°metro "name"
     if(empty($params['name'])){
-        Denko::plugin_fatal_error('el par·metro <b>name</b> es requerido','dk_get_config_vars');
+        Denko::plugin_fatal_error('el par√°metro <b>name</b> es requerido','dk_get_config_vars');
     }
 
-    # Obtengo el valor de la configuraciÛn
+    # Obtengo el valor de la configuraci√≥n
     $value = $smarty->get_config_vars($params['name']);
 
-    # En caso que la configuraciÛn estÈ vacÌa, no retorno nada
+    # En caso que la configuraci√≥n est√© vac√≠a, no retorno nada
     if(!isset($value)){
         return '';
     }
@@ -60,8 +60,7 @@ function smarty_function_dk_get_config_vars($params, &$smarty){
         return '';
     }
 
-    # Retorno el valor de la configuraciÛn
+    # Retorno el valor de la configuraci√≥n
     return $value;
 }
 ################################################################################
-?>

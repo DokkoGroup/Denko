@@ -31,4 +31,3 @@ function smarty_modifier_dk_trim($string,$inside=false){
     return $string;
 }
 ################################################################################
-?>

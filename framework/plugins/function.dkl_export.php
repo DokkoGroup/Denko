@@ -8,10 +8,10 @@
  */
 function smarty_function_dkl_export($params,&$smarty){
     if(empty($params['assign'])){
-        Denko::plugin_fatal_error('el par·metro <b>assign</b> es requerido','dkl_export');
+        Denko::plugin_fatal_error('el par√°metro <b>assign</b> es requerido','dkl_export');
     }
     if(empty($params['column'])){
-        Denko::plugin_fatal_error('el par·metro <b>column</b> es requerido','dkl_export');
+        Denko::plugin_fatal_error('el par√°metro <b>column</b> es requerido','dkl_export');
     }
     $daoLister = &DK_DAOLister::getDaoLister($smarty);
     $dao = &$daoLister->getDao();

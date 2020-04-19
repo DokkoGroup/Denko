@@ -5,7 +5,7 @@
  * Type:     function<br>
  * Name:     dk_eval<br>
  * Date:     July 31, 2008<br>
- * Purpose:  Retorna la evaluaciÛn de una variable en template
+ * Purpose:  Retorna la evaluaci√≥n de una variable en template
  * @author   Dokko Group <info at dokkogroup dot com dot ar>
  * @version  1.0
  * @param array
@@ -15,7 +15,7 @@
 require_once '../denko/dk.denko.php';
 
 /**
- * FunciÛn dk_eval
+ * Funci√≥n dk_eval
  * @param Array $params
  * @param Smarty $smarty
  * @return String
@@ -23,14 +23,14 @@ require_once '../denko/dk.denko.php';
 function smarty_function_dk_eval($params,&$smarty){
 
     /**
-     * Verifico que exista el par·metro 'var'
+     * Verifico que exista el par√°metro 'var'
      */
     if(empty($params['var'])){
-        Denko::plugin_fatal_error('El par·metro <b>var</b> es requerido','dk_eval');
+        Denko::plugin_fatal_error('El par√°metro <b>var</b> es requerido','dk_eval');
     }
 
     /**
-     * Eval˙o la variable, usando el plugin eval. Notar que la variable no se
+     * Eval√∫o la variable, usando el plugin eval. Notar que la variable no se
      * puede evaluar directamente con el plugin 'eval'. Por ello se envuelve
      * en '{$'.VARIABLE.'}'
      */
@@ -39,7 +39,7 @@ function smarty_function_dk_eval($params,&$smarty){
     $evalcode = smarty_function_eval($options,$smarty);
 
     /**
-     * En caso que exista el par·metro 'assign', lo asigno a esa variable en vez
+     * En caso que exista el par√°metro 'assign', lo asigno a esa variable en vez
      * de retornar el resultado
      */
     if(!empty($params['assign'])){

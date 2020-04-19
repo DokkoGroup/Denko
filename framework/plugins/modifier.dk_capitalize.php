@@ -25,4 +25,3 @@ function smarty_modifier_dk_capitalize($string,$charset = 'UTF-8'){
     return Denko::capitalize($string,$charset);
 }
 ################################################################################
-?>

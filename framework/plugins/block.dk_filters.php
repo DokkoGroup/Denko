@@ -2,13 +2,13 @@
 /**
  * obligatorio: name
  * opcionales:
- *   - hiddens: inputs que se incluir·n en los hiddens. O sea, Los nombres de los
+ *   - hiddens: inputs que se incluir√°n en los hiddens. O sea, Los nombres de los
  *   - inputs que estan dentro del bloque y que no son 'dkf_input'.
  */
 function smarty_block_dk_filters($params, $content, &$smarty, &$repeat){
     if($repeat == false){
         if(empty($params['name'])){
-            Denko::plugin_fatal_error('el par·metro <b>name</b> es requerido','dk_filters');
+            Denko::plugin_fatal_error('el par√°metro <b>name</b> es requerido','dk_filters');
         }
         $daoLister = &DK_DAOLister::getDaoLister($smarty);
         $daoLister->addForm($params['name']);

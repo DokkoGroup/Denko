@@ -24,4 +24,3 @@ function smarty_modifier_dk_escape_jsurl($string){
     return urlencode(urlencode($string));
 }
 ################################################################################
-?>

@@ -12,14 +12,14 @@
  * <br>
  * Name: dk_number_format
  * <br>
- * Purpose: Formatea un número, aplicando la función number_format de PHP
+ * Purpose: Formatea un nÃºmero, aplicando la funciÃ³n number_format de PHP
  *
  * @author Dokko Group Developers Team <info at dokkogroup dot com>
  * @link http://wiki.dojo/index.php/Denko%20Plugin%3A%20modificador%20dk_number_format {dk_number_format} (Denko wiki)
  * @param string $string cadena de texto
  * @param integer $decimales cantidad de decimales
  * @param string $punto_dec punto decimal
- * @param string $sep_miles caracter de separación de miles
+ * @param string $sep_miles caracter de separaciÃ³n de miles
  * @return string
  */
 ################################################################################
@@ -27,4 +27,3 @@ function smarty_modifier_dk_number_format($string, $decimales = 2, $punto_dec = 
     return number_format($string,$decimales,$punto_dec,$sep_miles);
 }
 ################################################################################
-?>

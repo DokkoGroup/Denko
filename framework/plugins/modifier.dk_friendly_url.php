@@ -24,4 +24,3 @@ function smarty_modifier_dk_friendly_url($string){
     return Denko::str_to_friendlyUrl($string);
 }
 ################################################################################
-?>

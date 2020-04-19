@@ -34,8 +34,8 @@
  *
  * @author Dokko Group Developers Team <info at dokkogroup dot com>
  * @link http://wiki.dojo/index.php/Denko%20Plugin%3A%20bloque%20dk_fetch {dk_fetch} (Denko wiki)
- * @param array $params parámetros
- * @param string $content En caso de que la etiqueta sea de apertura, este será null, si la etiqueta es de cierre el valor será del contenido del bloque del template
+ * @param array $params parÃ¡metros
+ * @param string $content En caso de que la etiqueta sea de apertura, este serÃ¡ null, si la etiqueta es de cierre el valor serÃ¡ del contenido del bloque del template
  * @param Smarty &$smarty instancia de Smarty
  * @param boolean &$repeat es true en la primera llamada de la block-function (etiqueta de apertura del bloque) y false en todas las llamadas subsecuentes
  * @return string
@@ -48,4 +48,3 @@ function smarty_block_dk_fetch($params, $content, &$smarty, &$repeat){
     return $content;
 }
 ################################################################################
-?>

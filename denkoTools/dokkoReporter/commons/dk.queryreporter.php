@@ -22,9 +22,9 @@ require_once 'MDB2.php';
 require_once 'DB/DataObject.php';
 
 /**
-* Documentación DokkoReporter 0.1
+* DocumentaciÃ³n DokkoReporter 0.1
 *
-* Herramienta de creación de contenidos web
+* Herramienta de creaciÃ³n de contenidos web
 *
 * @author DokkoReporter Developers Group <info@dokkogroup.com.ar>
 * @version 0.1
@@ -34,13 +34,13 @@ require_once 'DB/DataObject.php';
 
 class DK_QueryReporter {
 
-    # Producto de la conección con la base de datos.
+    # Producto de la conecciÃ³n con la base de datos.
     /**
      * @var MDB2_Driver_Common
      */
 	private $mdb2 = null;
 
-    # Resultados de la ejecución del query en la base de datos.
+    # Resultados de la ejecuciÃ³n del query en la base de datos.
 	private $_dao = null;
 
     # Propiedades del query.
@@ -55,16 +55,16 @@ class DK_QueryReporter {
     # Arreglo encargado de guardar los filtros.
     private $filters = array();
 
-    # Id del reporte que se está consultando.
+    # Id del reporte que se estÃ¡ consultando.
     private $id_report = 0;
 
-    # Valores de los filtros que se aplicarán al query.
+    # Valores de los filtros que se aplicarÃ¡n al query.
     private $filterValues = null;
 
-    # Número de resultados encontrados.
+    # NÃºmero de resultados encontrados.
     private $numRows = 0;
 
-    # Número de resultados por página que se deben mostrar.
+    # NÃºmero de resultados por pÃ¡gina que se deben mostrar.
     private $resultsPerPage = 0;
 
     //----------------------------------------------------------------------------------
@@ -75,13 +75,13 @@ class DK_QueryReporter {
 	public function DK_QueryReporter($id_report, $resultsPerPage = null) {
 		$property = PEAR::getStaticProperty('DB_DataObject','options');
 
-        # Realizo la conección.
+        # Realizo la conecciÃ³n.
         $this->mdb2 =& MDB2::connect($property['database']);
         if (PEAR::isError($this->mdb2)) {
             die('<b>MDB2 Error: </b>'.$this->mdb2->getMessage().'<br /><b>MDB2 Debug Info: </b>'.$this->mdb2->getDebugInfo());
         }
 
-        # Define la manera en que traerá la información de la base.
+        # Define la manera en que traerÃ¡ la informaciÃ³n de la base.
         $this->mdb2->setFetchMode(MDB2_FETCHMODE_OBJECT);
 
         # Establezco valores de variables.
@@ -120,7 +120,7 @@ class DK_QueryReporter {
             $this->filters = $this->jsonQueryReport['filters'];
             foreach ($this->filters as $filter) {
             	if (!isset($filter['nombre']) || !isset($filter['tipo']) || !isset($filter['default'])) {
-            		die('<b>DK_QueryReporter Error: </b> los filtros no están correctamente definidos.');
+            		die('<b>DK_QueryReporter Error: </b> los filtros no estÃ¡n correctamente definidos.');
             	}
             }
         }
@@ -136,11 +136,11 @@ class DK_QueryReporter {
 		$this->setDao();
         $this->setProperties();
 
-        # Guardo dentro de una variable global el objeto en cuestión para luego poder 
+        # Guardo dentro de una variable global el objeto en cuestiÃ³n para luego poder 
         # recuperarlo en otros bloques o funciones.
         $GLOBALS['DK_REPORTER'] = $this;
 
-        # Retorno el número de tuplas encontradas.
+        # Retorno el nÃºmero de tuplas encontradas.
 		return $this->numRows;
 	}
 
@@ -148,7 +148,7 @@ class DK_QueryReporter {
 
 	/**
 	 * Funciona como el fetch del DB_DataObject con la salvedad que no queda 
-	 * en el dao el valor, sino que se retorna como resultado de la función.
+	 * en el dao el valor, sino que se retorna como resultado de la funciÃ³n.
 	 */
 	public function fetch() {
 	    if ($this->_dao) {
@@ -294,7 +294,7 @@ class DK_QueryReporter {
     //----------------------------------------------------------------------------------
 
     /**
-     * Retorna el número de filtros que posee el query.
+     * Retorna el nÃºmero de filtros que posee el query.
      */
     public function getCantFilters() {
     	return count($this->filters);
@@ -303,8 +303,8 @@ class DK_QueryReporter {
     //----------------------------------------------------------------------------------
 
     /**
-     * Obtiene el valor del filtro que se encuentra dentro de la tabla configuración. Si
-     * este no existiese o es vacío, entrega el valor por defecto previamente seteado.
+     * Obtiene el valor del filtro que se encuentra dentro de la tabla configuraciÃ³n. Si
+     * este no existiese o es vacÃ­o, entrega el valor por defecto previamente seteado.
      */
     public function getFilterValue($id_filtro) {
         $query = $this->mdb2->query('SELECT valor FROM `configuracion` WHERE indice1 = \''.$this->id_report.'\' and indice2 = \''.$id_filtro.'\'');
@@ -365,8 +365,8 @@ class DK_QueryReporter {
     //----------------------------------------------------------------------------------
 
     /**
-     * Se encarga de modificar el valor por defecto de cada uno de los filtros según
-     * se haya consultado en ellos. De esta manera se podrá recuperar siempre la última
+     * Se encarga de modificar el valor por defecto de cada uno de los filtros segÃºn
+     * se haya consultado en ellos. De esta manera se podrÃ¡ recuperar siempre la Ãºltima
      * consulta hecha desde este campo.
      */
     private function guardarFiltrosDefault() {
@@ -395,7 +395,7 @@ class DK_QueryReporter {
     //----------------------------------------------------------------------------------
 
     /**
-     * Retorna el total de páginas a mostrar.
+     * Retorna el total de pÃ¡ginas a mostrar.
      */
     public function getTotalPages() {
         if ($this->numRows > 0 && $this->resultsPerPage > 0) {
@@ -407,8 +407,8 @@ class DK_QueryReporter {
     //----------------------------------------------------------------------------------
 
     /**
-     * Establece el total de páginas a mostrar, en base al número de resultados y
-     * los resultados por páginas ya establecidos.
+     * Establece el total de pÃ¡ginas a mostrar, en base al nÃºmero de resultados y
+     * los resultados por pÃ¡ginas ya establecidos.
      */
     private function setNumRows() {
         $this->setDao();

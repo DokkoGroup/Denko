@@ -12,12 +12,12 @@
  * <br>
  * Name: dk_browser_update
  * <br>
- * Purpose: Retorna el cÛdigo para informar a los usuarios que deben actualizar el navegador.
+ * Purpose: Retorna el c√≥digo para informar a los usuarios que deben actualizar el navegador.
  * <br>
  * Input:
  * <br>
  * - Opcionales:
- *   - assign = nombre de variable a la que asignar· el valor retornado.
+ *   - assign = nombre de variable a la que asignar√° el valor retornado.
  * <br>
  * Examples:
  * <pre>
@@ -27,28 +27,28 @@
  *
  * @author Denko Developers Group <info at dokkogroup dot com dot ar>
  * @link http://wiki.dojo/index.php/Denko%20Plugin%3A%20funci%F3n%20dk_browser_update {dk_browser_update}
- * @param Array $params par·metros
+ * @param Array $params par√°metros
  * @param Smarty $smarty instancia de smarty
  * @return string
  */
 ################################################################################
 function smarty_function_dk_browser_update($params, &$smarty) {
-    $code = '<script> 
-var $buoop = {c:2}; 
-function $buo_f(){ 
-  var e = document.createElement("script"); 
-  e.src = "//browser-update.org/update.min.js"; 
+    $code = '<script>
+var $buoop = {c:2};
+function $buo_f(){
+  var e = document.createElement("script");
+  e.src = "//browser-update.org/update.min.js";
   document.body.appendChild(e);
 };
 try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
 catch(e){window.attachEvent("onload", $buo_f)}
 </script>';
-    # En caso de existir el par·metro assign, asigno el cÛdigo al template
+    # En caso de existir el par√°metro assign, asigno el c√≥digo al template
     if(!empty($params['assign'])){
         $smarty->assign($params['assign'],$code);
         return '';
     }
-    # Retorno el cÛdigo
+    # Retorno el c√≥digo
     return $code;
 }
 ################################################################################

@@ -19,24 +19,24 @@
  * - Requeridos:
  *   - file = ruta del archivo
  * - Opcionales:
- *   - ignoreVersion = Ignora la versiÛn del archivo. Por default, se agrega una versiÛn del archivo para evitar el cacheo del archivo.
- *   - version = versiÛn del archivo. Por defecto, le agrega fecha y hora de update del archivo (ymdHis)
- *   - inline = indica si el archivo ser· agregado dentro del header del HTML (FALSE), o en la linea donde se pidiÛ (TRUE).
- *   - compress = indica si el archivo se comprimir· (si se minifica el archivo)
+ *   - ignoreVersion = Ignora la versi√≥n del archivo. Por default, se agrega una versi√≥n del archivo para evitar el cacheo del archivo.
+ *   - version = versi√≥n del archivo. Por defecto, le agrega fecha y hora de update del archivo (ymdHis)
+ *   - inline = indica si el archivo ser√° agregado dentro del header del HTML (FALSE), o en la linea donde se pidi√≥ (TRUE).
+ *   - compress = indica si el archivo se comprimir√° (si se minifica el archivo)
  *
  * @author Dokko Group Developers Team <info at dokkogroup dot com>
  * @link http://wiki.dokkogroup.com.ar/index.php/http://wiki.dojo/index.php/Denko%20Plugin%3A%20funci%F3n%20dk_include {dk_include} (Denko wiki)
- * @param array $params par·metros
+ * @param array $params par√°metros
  * @param Smarty &$smarty instancia de Smarty
  * @return string
  */
 ################################################################################
 function smarty_function_dk_include($params, &$smarty) {
     if (empty($params['file'])) {
-        Denko::plugin_fatal_error('el par·metro <b>file</b> es requerido','dk_include');
+        Denko::plugin_fatal_error('el par√°metro <b>file</b> es requerido','dk_include');
     }
 
-    # Obtengo la informaciÛn del path
+    # Obtengo la informaci√≥n del path
     $pathinfo = pathinfo($params['file']);
     $file_basename  = $pathinfo['basename'];
     $file_extension = strtolower($pathinfo['extension']);
@@ -50,12 +50,12 @@ function smarty_function_dk_include($params, &$smarty) {
         # Verifico si el archivo debe ser comprimido.
         $compress = (!isset($params['compress']) || ($params['compress'] === true) || (strtolower($params['compress']) === 'true'));
 
-        # La versiÛn puede estar seteada entre los par·metros.
-        # En caso contrario, genero la versiÛn tomando en cuenta la fecha de actualizaciÛn del archivo.
+        # La versi√≥n puede estar seteada entre los par√°metros.
+        # En caso contrario, genero la versi√≥n tomando en cuenta la fecha de actualizaci√≥n del archivo.
         $version  = !empty($params['version']) ? $params['version'] : (date('ymdHis',file_exists($params['file']) ? filemtime($params['file']) : time()));
         $filepath = $file_directory.'-'.$version;
 
-        # La compresiÛn de archivos por ahora est· habilitada para los javascript
+        # La compresi√≥n de archivos por ahora est√° habilitada para los javascript
         if ($compress == true) {
             smarty_function_dk_include_create_compressed_file($params['file']);
             $filepath .= '-c';
@@ -65,7 +65,7 @@ function smarty_function_dk_include($params, &$smarty) {
         $filepath .= '/'.$file_basename;
     }
 
-    # Obtengo los par·metros extra que se setearon en el plugin
+    # Obtengo los par√°metros extra que se setearon en el plugin
     $extraParams = '';
     foreach ($params as $param => $value) {
         if ($param == 'file' || $param == 'ignoreVersion' || $param == 'inline' || $param == 'compress') {
@@ -79,7 +79,7 @@ function smarty_function_dk_include($params, &$smarty) {
 
         # Cascading Style Sheets
         case 'css':
-            # En caso de no existir el par·metro 'media', asumo media="screen"
+            # En caso de no existir el par√°metro 'media', asumo media="screen"
             # http://www.w3.org/TR/CSS2/media.html
             if (empty($params['media'])) {
                 $extraParams .= ' media="screen"';
@@ -103,7 +103,7 @@ function smarty_function_dk_include($params, &$smarty) {
         return smarty_function_dk_include_verify_included_file($params['file']) ? $html : '';
     }
 
-    # En caso que el cÛdigo HTML deba ir en el header.
+    # En caso que el c√≥digo HTML deba ir en el header.
     if ($inline == 'false' || $inline === false) {
 
         # Agrego el HTML en el arreglo de includes.
@@ -112,8 +112,8 @@ function smarty_function_dk_include($params, &$smarty) {
                 $GLOBALS['DENKO_INCLUDES'] = array();
             }
 
-            # Si se trata de un archivo css donde no se especificÛ que se ignore
-            # la versiÛn del archivo, se pasa el $filepath en vez del html generado.
+            # Si se trata de un archivo css donde no se especific√≥ que se ignore
+            # la versi√≥n del archivo, se pasa el $filepath en vez del html generado.
             if (empty($params['ignoreVersion']) && $file_extension == 'css' && file_exists('../minify/csstidy/class.csstidy.php')) {
             	if (!empty($params['version'])) { $GLOBALS['DENKO_INCLUDES']['version'] = $params['version']; }
             	$GLOBALS['DENKO_INCLUDES']['cssfilepath'][] = basename($filepath);
@@ -124,7 +124,7 @@ function smarty_function_dk_include($params, &$smarty) {
         return '';
     }
 
-    # En caso que el cÛdigo HTML deba ser retornado.
+    # En caso que el c√≥digo HTML deba ser retornado.
     if ($inline == 'true' || $inline == true) {
         return $html;
     }
@@ -172,11 +172,11 @@ function smarty_function_dk_include_create_compressed_file($file_path) {
     	$originalFileExt  = substr(strrchr($file_path, '.'), 1);
 	}
 
-    # Obtengo el path del archivo en su versiÛn comprimida.
+    # Obtengo el path del archivo en su versi√≥n comprimida.
     $newFilePath = 'templates_c/compressed.'.basename($file_path);
 
     # En caso que el archivo no exista, lo genero. Si se trata de un archivo less
-    # se realiza la conversiÛn al css. Por ˙ltimo se comprime el archivo.
+    # se realiza la conversi√≥n al css. Por √∫ltimo se comprime el archivo.
     if (!file_exists($newFilePath) || filemtime($originalFilePath) > filemtime($newFilePath)) {
 
   		if ($originalFileExt == 'js') {
@@ -195,4 +195,3 @@ function smarty_function_dk_include_create_compressed_file($file_path) {
     }
 }
 ################################################################################
-?>

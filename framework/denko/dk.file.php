@@ -18,7 +18,7 @@
 class DK_File{
 
     /**
-     * Convierte una cadena a nombre válido de archivo
+     * Convierte una cadena a nombre vÃ¡lido de archivo
      *
      * @param string $string cadena que convertir
      * @static
@@ -27,15 +27,15 @@ class DK_File{
      */
     public static function filenameFormat($string,$replaceSpaces = '_'){
 
-        # Primero elimino todos los caracteres que no sean válidos
+        # Primero elimino todos los caracteres que no sean vÃ¡lidos
         $string = preg_replace('/[^\w\s]|\_/','',$string);
 
         # Luego elimino el exceso de espacios
         $string = preg_replace('/\s+/',$replaceSpaces,$string);
 
-        # Por último convierto los caracteres con acento y/o diéresis y la eñes,
-        # además de pasar todo a minúscula
-        return strtr(strtolower($string),'äàáãâåèëéêìíïîòóöôõüùúûñ','aaaaaaeeeeiiiiooooouuuun');
+        # Por Ãºltimo convierto los caracteres con acento y/o diÃ©resis y la eÃ±es,
+        # ademÃ¡s de pasar todo a minÃºscula
+        return strtr(strtolower($string),'Ã¤Ã Ã¡Ã£Ã¢Ã¥Ã¨Ã«Ã©ÃªÃ¬Ã­Ã¯Ã®Ã²Ã³Ã¶Ã´ÃµÃ¼Ã¹ÃºÃ»Ã±','aaaaaaeeeeiiiiooooouuuun');
     }
 
     /**
@@ -51,12 +51,12 @@ class DK_File{
     }
 
     /**
-     * Obtiene la extensión del nombre de un archivo
+     * Obtiene la extensiÃ³n del nombre de un archivo
      *
      * @param string $filename nombre del archivo
      * @static
      * @access public
-     * @return string en caso que tenga extensión, NULL en caso contrario
+     * @return string en caso que tenga extensiÃ³n, NULL en caso contrario
      */
     public static function extension($filename){
         $dotpos = strrpos($filename,'.');
@@ -67,7 +67,7 @@ class DK_File{
     }
 
     /**
-     * Retorna el nombre del archivo, sin la extensión
+     * Retorna el nombre del archivo, sin la extensiÃ³n
      *
      * @param string $filepath path del archivo
      * @static
@@ -81,13 +81,13 @@ class DK_File{
     }
 
     /**
-     * Verifica que un archivo haya sido subido correctamente. Retorna el código de error.
+     * Verifica que un archivo haya sido subido correctamente. Retorna el cÃ³digo de error.
      *
      * @param string $upload_key clave del archivo en el arreglo $_FILES
      * @param array $supportedMimeTypes mimes soportados
      * @static
      * @access public
-     * @return integer código de error
+     * @return integer cÃ³digo de error
      * @link http://ar.php.net/features.file-upload.errors
      */
     public static function verifyUploadedFile($upload_key,$supportedMimeTypes=array()){
@@ -95,13 +95,13 @@ class DK_File{
         # En caso que indique que no haya error
         if($_FILES[$upload_key]['error'] == UPLOAD_ERR_OK){
 
-            # Verifico que el tamaño sea mayor a 0. Si el tamaño es 0, es porque
+            # Verifico que el tamaÃ±o sea mayor a 0. Si el tamaÃ±o es 0, es porque
             # el archivo no pudo subirse
             if($_FILES[$upload_key]['size'] == '0'){
                 return UPLOAD_ERR_NO_FILE;
             }
 
-            # Verifico que el mime esté soportado
+            # Verifico que el mime estÃ© soportado
             if(count($supportedMimeTypes) > 0 && !in_array($_FILES[$upload_key]['type'],$supportedMimeTypes)){
                 return UPLOAD_ERR_EXTENSION;
             }
@@ -112,7 +112,7 @@ class DK_File{
     }
 
     /**
-     * Dado un MIME, retorna la extensión que tiene que tener el archivo
+     * Dado un MIME, retorna la extensiÃ³n que tiene que tener el archivo
      *
      * @param string $mime MIME
      * @static
@@ -135,7 +135,7 @@ class DK_File{
      * @param string $filename nombre del archivo
      * @static
      * @access public
-     * @return boolean TRUE en caso de éxito, FALSE en caso de fallo
+     * @return boolean TRUE en caso de Ã©xito, FALSE en caso de fallo
      */
     public static function unlink($filename){
         return self::file_exists($filename) ? unlink($filename) : false;

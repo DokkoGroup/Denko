@@ -1,7 +1,7 @@
 <?php
 /**
- * Función que se encarga de reemplazar el tag "<!-- @@DENKO_INCLUDES@@ -->"
- * por las inclusiones de archivos previamente invocadas. 
+ * FunciÃ³n que se encarga de reemplazar el tag "<!-- @@DENKO_INCLUDES@@ -->"
+ * por las inclusiones de archivos previamente invocadas.
  */
 function smarty_outputfilter_dk_include($source, &$smarty) {
 
@@ -16,16 +16,16 @@ function smarty_outputfilter_dk_include($source, &$smarty) {
 	        foreach ($otherFiles as $include) { $html .= $include."\n"; }
         }
 
-		# Si se definieron archivos css sin ignorar la versión se unifican los mismos.
+		# Si se definieron archivos css sin ignorar la versiÃ³n se unifican los mismos.
 		if ($cssFiles) {
 			$fileName = md5(implode('', $cssFiles));
 			$filePath = 'templates_c/compressed.'.$fileName.'.css';
-			
+
 			# Si el archivo principal no existe lo genero.
 			if (!file_exists($filePath)) {
 				smarty_outputfilter_generate_main_file($cssFiles, $filePath);
 
-			# Si el archivo principal existe pero posee una fecha de modificación más
+			# Si el archivo principal existe pero posee una fecha de modificaciÃ³n mÃ¡s
 			# antigua que los que lo componen, se regenera el mismo.
 			} else {
 				$oneTime = false;
@@ -55,4 +55,3 @@ function smarty_outputfilter_generate_main_file($cssFiles, $filePath) {
 	}
 }
 ################################################################################
-?>

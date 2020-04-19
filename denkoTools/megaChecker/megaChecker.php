@@ -232,9 +232,9 @@ echo $span_close . $br;
 //-----------------------------------------
 
 
-//Verifico que la extensiÛn GD2 estÈ activada.
+//Verifico que la extensi√≥n GD2 est√© activada.
 $en_gd2_ext = extension_loaded('gd');
-echo $checkeo . ' El estado de la extensiÛn GD2: ';
+echo $checkeo . ' El estado de la extensi√≥n GD2: ';
 if ($en_gd2_ext){
     echo $span_ok . 'ACTIVADO';
 }else{
@@ -244,9 +244,9 @@ echo $span_close . $br;
 //--------------------------------------------
 
 
-//Verifico que la extension eAccelerator estÈ activada.
+//Verifico que la extension eAccelerator est√© activada.
 $en_eaccel_ext = extension_loaded('eAccelerator');
-echo $checkeo . ' El estado de la extensiÛn eAccelerator: ';
+echo $checkeo . ' El estado de la extensi√≥n eAccelerator: ';
 if ($en_eaccel_ext){
     echo $span_ok . 'ACTIVADO';
 }else{
@@ -256,7 +256,7 @@ echo $span_close . $br;
 //-----------------------------------------------------
 
 
-//Verifico que estÈn instaladas las PEAR
+//Verifico que est√©n instaladas las PEAR
 
 
 $incl_pth = get_include_path();
@@ -332,9 +332,9 @@ if ($seguir){
     }
     $dsn = $options ['database'];
     $db = & DB::connect($dsn);
-    echo $checkeo . ' La conexiÛn a la base de datos: ';
+    echo $checkeo . ' La conexi√≥n a la base de datos: ';
     if (! (PEAR::isError($db))){
-        echo $span_ok . 'CONEXI”N EXITOSA';
+        echo $span_ok . 'CONEXI√ìN EXITOSA';
     }else{
         echo $span_fatal . 'NO SE PUDO CONECTAR LA BASE';
     }
@@ -342,8 +342,8 @@ if ($seguir){
 }
 //--------------------------------------------------
 
-//Verifico que si est· habilitada la funciÛn sem_get()
-echo "\n".$checkeo.' Si est· habilitada la funciÛn SEM_GET(): ';
+//Verifico que si est√° habilitada la funci√≥n sem_get()
+echo "\n".$checkeo.' Si est√° habilitada la funci√≥n SEM_GET(): ';
 if (function_exists('sem_get')) {
     echo "\n".$span_ok.'HABILITADA';
 } else {
@@ -352,23 +352,23 @@ if (function_exists('sem_get')) {
 echo $span_close.$br;
 //----------------------------------------------------
 
-//Mostrar la versiÛn de php
-echo '* VersiÛn actual de PHP: ' . $span_msg . phpversion() . $span_close;
+//Mostrar la versi√≥n de php
+echo '* Versi√≥n actual de PHP: ' . $span_msg . phpversion() . $span_close;
 
 //-------------------------
 
 
-//Mostrar la versiÛn de apache
+//Mostrar la versi√≥n de apache
 function apacheversion() {
     $ver = preg_split('/[/ ]/', $_SERVER ['SERVER_SOFTWARE']);
     $apver = "$ver[1] $ver[2]";
     return $apver;
 }
-echo $br . "\n" . '* VersiÛn actual de APACHE: ' . $span_msg . apacheversion() . $span_close;
+echo $br . "\n" . '* Versi√≥n actual de APACHE: ' . $span_msg . apacheversion() . $span_close;
 //----------------------------
 
 
-//Mostrar la versiÛn del SO
+//Mostrar la versi√≥n del SO
 echo $br . "\n" . '* Sistema Operativo:' . $span_msg . php_uname() . $span_close;
 echo $br . "\n" . '* Sistema Operativo:' . $span_msg . PHP_OS . $span_close;
 //-------------------------

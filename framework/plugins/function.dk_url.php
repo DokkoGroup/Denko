@@ -15,4 +15,3 @@ function smarty_function_dk_url($params,&$smarty){
     return $params['url'].$html;
 }
 ################################################################################
-?>

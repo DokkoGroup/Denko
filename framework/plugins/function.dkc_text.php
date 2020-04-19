@@ -5,7 +5,7 @@
  */
 function smarty_function_dkc_text($params,&$smarty){
     if(empty($params['column'])){
-        Denko::plugin_fatal_error('el par·metro <b>column</b> es requerido','dkc_text');
+        Denko::plugin_fatal_error('el par√°metro <b>column</b> es requerido','dkc_text');
     }
     $daoLister = &DK_DAOLister::getDaoLister($smarty);
     $dao = &$daoLister->getDao();

@@ -12,7 +12,7 @@
  * <br>
  * Name: dk_upper
  * <br>
- * Purpose: Cambia a mayúsculas una cadena de texto
+ * Purpose: Cambia a mayÃºsculas una cadena de texto
  *
  * @author Dokko Group Developers Team <info at dokkogroup dot com>
  * @link http://wiki.dojo/index.php/Denko%20Plugin%3A%20modificador%20dk_upper {dk_upper} (Denko wiki)
@@ -25,4 +25,3 @@ function smarty_modifier_dk_upper($string,$charset = 'UTF-8'){
     return Denko::upper($string,$charset);
 }
 ################################################################################
-?>

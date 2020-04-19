@@ -25,4 +25,3 @@ function smarty_modifier_dk_basename($string,$sufijo = null){
     return $sufijo == null ? basename($string) : basename($string,$sufijo);
 }
 ################################################################################
-?>

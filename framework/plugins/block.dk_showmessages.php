@@ -19,7 +19,7 @@
  * <br>
  * - Opcionales
  * - type = Tipo de mensaje que se desea mostrar ('ERROR', 'OK' o 'WARNING').
- * Si no est· seteado este par·metro mostrar· todos los mensajes, sin importar el tipo.
+ * Si no est√° seteado este par√°metro mostrar√° todos los mensajes, sin importar el tipo.
  * <br>
  * Examples:
  * <pre>
@@ -40,8 +40,8 @@
  *
  * @author Dokko Group Developers Team <info at dokkogroup dot com>
  * @link http://wiki.dojo/index.php/Denko%20Plugin%3A%20bloque%20dk_showmessages {dk_showmessages} (Denko wiki)
- * @param array $params par·metros
- * @param string $content En caso de que la etiqueta sea de apertura, este ser· null, si la etiqueta es de cierre el valor ser· del contenido del bloque del template
+ * @param array $params par√°metros
+ * @param string $content En caso de que la etiqueta sea de apertura, este ser√° null, si la etiqueta es de cierre el valor ser√° del contenido del bloque del template
  * @param Smarty &$smarty instancia de Smarty
  * @param boolean &$repeat es true en la primera llamada de la block-function (etiqueta de apertura del bloque) y false en todas las llamadas subsecuentes
  * @return string
@@ -58,14 +58,14 @@
 function smarty_block_dk_showmessages($params, $content, &$smarty, &$repeat) {
     $msgType = null;
     
-    # En caso que pasen el par·metro 'type'
+    # En caso que pasen el par√°metro 'type'
     if (! empty($params ['type'])){
-        # Convierto en may˙sculas el tipo de error
+        # Convierto en may√∫sculas el tipo de error
         $type = strtoupper($params ['type']);
         
-        # Verifico que si pasan el par·metro 'type' sea el correcto
+        # Verifico que si pasan el par√°metro 'type' sea el correcto
         if (! in_array($params ['type'], array ('OK', 'WARNING', 'ERROR' ))){
-            Denko::plugin_fatal_error('el par·metro <b>type</b> es incorrecto', 'dk_showmessages');
+            Denko::plugin_fatal_error('el par√°metro <b>type</b> es incorrecto', 'dk_showmessages');
         }else{ # Guardo el tipo de mensaje que debo mostrar
             $msgType = Denko::hasMessages($type) ? $type : null;
         }
@@ -81,7 +81,7 @@ function smarty_block_dk_showmessages($params, $content, &$smarty, &$repeat) {
     
     $dk_msgPack = array_shift($GLOBALS ['DENKO_MSGS'] [$msgType]);
     
-    # En caso que no queden m·s mensajes por mostrar en el prÛximo ciclo del loop
+    # En caso que no queden m√°s mensajes por mostrar en el pr√≥ximo ciclo del loop
     if (count($GLOBALS ['DENKO_MSGS'] [$msgType]) == 0){
         unset($GLOBALS ['DENKO_MSGS'] [$msgType]);
     }
@@ -112,7 +112,7 @@ function smarty_block_dk_showmessages($params, $content, &$smarty, &$repeat) {
 
 ################################################################################
 /**
- * Obtiene el valor de una ocnfiguraciÛn de Smarty
+ * Obtiene el valor de una ocnfiguraci√≥n de Smarty
  * @param String $key
  * @param Smarty $smarty
  * @return Mixed
@@ -122,4 +122,3 @@ function smartyGetConfig($key, &$smarty) {
     return ($value ? $value : $key);
 }
 ################################################################################
-?>

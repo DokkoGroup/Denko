@@ -11,7 +11,7 @@ require_once '../denko/dk.queryreporter.php';
  */
 function smarty_block_dk_reporter($params, $content, &$smarty, &$repeat) {
 
-    # Valido que el parámetro 'id_report'.
+    # Valido que el parÃ¡metro 'id_report'.
     if (isset($params['id_report']) && !empty($params['id_report'])) {
     	$id_report = $params['id_report'];
     } elseif (isset($_POST['id_report'])) {
@@ -24,7 +24,7 @@ function smarty_block_dk_reporter($params, $content, &$smarty, &$repeat) {
     $smarty->assign('dkr_idReport',$id_report);
 
 
-	# Seteo parámetros necesarios para el funcionamiento del dkr.
+	# Seteo parÃ¡metros necesarios para el funcionamiento del dkr.
     $resultsPerPage = (isset($params['resultsPerPage'])) ? $params['resultsPerPage'] : null;
 	$pageNumber     = (isset($_GET['dkr_page']))         ? $_GET['dkr_page']         : 1;
 
@@ -49,10 +49,10 @@ function smarty_block_dk_reporter($params, $content, &$smarty, &$repeat) {
         $smarty->assign('dkr_filter_results',$report->getCantFilters());
 
 
-        # Valido el número de página.
+        # Valido el nÃºmero de pÃ¡gina.
         $totalPages = $report->getTotalPages();
         if (!Denko::isInt($pageNumber) || $pageNumber <= 0 || $pageNumber > $totalPages) {
-            Denko::plugin_fatal_error('el número de página es erroneo','dk_reporter');
+            Denko::plugin_fatal_error('el nÃºmero de pÃ¡gina es erroneo','dk_reporter');
         } else {
             $smarty->assign('dkr_pageNumber',$pageNumber);
             $smarty->assign('dkr_totalPages',$totalPages);
@@ -66,7 +66,7 @@ function smarty_block_dk_reporter($params, $content, &$smarty, &$repeat) {
         }
         $smarty->assign('column',$arreglo);
     } else {
-    	Denko::plugin_fatal_error('no se encontró el reporte especificado','dk_reporter');
+    	Denko::plugin_fatal_error('no se encontrÃ³ el reporte especificado','dk_reporter');
     }
 
 

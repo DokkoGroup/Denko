@@ -1,7 +1,7 @@
 <?php
 /**
  * Requeridos:
- * - name: nombre de la configuraciÛn
+ * - name: nombre de la configuraci√≥n
  * Opcionales:
  * - indice1:
  * - indice2:
@@ -17,12 +17,12 @@ require_once '../commons/dokko_configurator.php';
  */
 function smarty_function_dk_getconfig($params, &$smarty) {
 
-    # Verifico que estÈ el par·metro 'name'
+    # Verifico que est√© el par√°metro 'name'
     if(empty($params['name'])){
-        Denko::plugin_fatal_error('el par·metro <b>name</b> es requerido','dk_getconfig');
+        Denko::plugin_fatal_error('el par√°metro <b>name</b> es requerido','dk_getconfig');
     }
 
-    # Obtengo la configuraciÛn de la DB
+    # Obtengo la configuraci√≥n de la DB
     $config = getConfig($params['name'],!empty($params['indice1'])?$params['indice1']:null,!empty($params['indice2'])?$params['indice2']:null);
 
     # En caso que deba asignar el valor al template

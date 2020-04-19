@@ -4,7 +4,7 @@ global $RGB,$fname;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <head>
-	<title>Dokko´s CSS Colorizer</title>
+	<title>DokkoÂ´s CSS Colorizer</title>
 	<link rel="stylesheet" href="styles/main.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="styles/slider.css" type="text/css" media="screen" />
 	
@@ -19,7 +19,7 @@ global $RGB,$fname;
 <table class="mainTable" cellpadding="0" cellspacing="10" border="0" <?php echo 'align="center"'?>>
 	<tr>
 		<td align="center" colspan="2">
-			<img src="images/logo.gif" style="border:none;" alt="Dokko´s CSS Colorizer" title="Dokko´s CSS Colorizer"/>
+			<img src="images/logo.gif" style="border:none;" alt="Dokko's CSS Colorizer" title="Dokko's CSS Colorizer"/>
 		</td>
 	</tr>
 	<tr>
@@ -87,20 +87,20 @@ global $RGB,$fname;
 			</div>
 			<div id="vertical_slide" class="help">
 				<strong>Paso 1:</strong><br/>
-				Seleccione la gama de color que desea aplicar a su archivo. Los colores existentes en dicho archivo serán ajustados a la nueva gama seleccionada.<br/>
+				Seleccione la gama de color que desea aplicar a su archivo. Los colores existentes en dicho archivo serÃ¡n ajustados a la nueva gama seleccionada.<br/>
 				<strong>Paso 2:</strong><br/>
 				Cargue el archivo donde se encuentran los colores que desee modificar.<br/>
 				<strong>Paso 3:</strong><br/>
-				Listo! Aquí podrá visualizar los colores originales del archivo junto a los nuevos colores modificados para ajustarse a la nueva gama de color seleccionada. Si está conforme, podrá descargarse el nuevo archivo con los colores modificados.<br/>
+				Listo! AquÃ­ podrÃ¡ visualizar los colores originales del archivo junto a los nuevos colores modificados para ajustarse a la nueva gama de color seleccionada. Si estÃ¡ conforme, podrÃ¡ descargarse el nuevo archivo con los colores modificados.<br/>
 				Se puede checkear cualquiera de los colores originales para mantenerlos sin cambios utilizando el <span class="checkbox">&nbsp;</span> que tienen a la izquierda de los mismos.<br/><br/>
 				<span class="disk">&nbsp;</span> Para descargar el nuevo archivo generado, puede optar entre dos opciones:<br/>
-				<strong>a:</strong>&nbsp;Click derecho sobre el link de descarga, seleccionar "Guardar destino como..." y guarde el archivo con el mismo nombre y extensión que el original.<br/>
-				<strong>b:</strong>&nbsp;Click izquierdo sobre el link de descarga para visualizar el archivo en la ventana. A continuación vaya a "Archivo" del menú de su navegador, seleccione "Guardar como..." y guarde el archivo con el mismo nombre y extensión que el original.<br/><br/>
+				<strong>a:</strong>&nbsp;Click derecho sobre el link de descarga, seleccionar "Guardar destino como..." y guarde el archivo con el mismo nombre y extensiÃ³n que el original.<br/>
+				<strong>b:</strong>&nbsp;Click izquierdo sobre el link de descarga para visualizar el archivo en la ventana. A continuaciÃ³n vaya a "Archivo" del menÃº de su navegador, seleccione "Guardar como..." y guarde el archivo con el mismo nombre y extensiÃ³n que el original.<br/><br/>
 				<strong>Nota:</strong><br/>
 				Este script acepta cualquier archivo como entrada y busca los patrones "#RRGGBB;" y "#RGB;".<br/>
 			</div>		
 		</td>
 	</tr>
 </table>
-<div class="footer">CSS Colorizer © Copyright 2007-2008 <a href="http://www.dokkogroup.com.ar" <?php echo 'target="_blank"'?> >DokkoGroup</a></div>
+<div class="footer">CSS Colorizer Â© Copyright 2007-2008 <a href="http://www.dokkogroup.com.ar" <?php echo 'target="_blank"'?> >DokkoGroup</a></div>
 </body>

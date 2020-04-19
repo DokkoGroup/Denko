@@ -25,4 +25,3 @@ function smarty_modifier_dk_js_hide($string,$charset = 'UTF-8'){
     return Denko::jsHide($string);
 }
 ################################################################################
-?>

@@ -21,7 +21,7 @@ class Dineromail {
 	//------------------------------------------------------------------------------------
 
 	public static function plainText($cadena){
-		$tofind = "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñº";
+		$tofind = "Ã€ÃÃ‚ÃƒÃ„Ã…Ã Ã¡Ã¢Ã£Ã¤Ã¥Ã’Ã“Ã”Ã•Ã–Ã˜Ã²Ã³Ã´ÃµÃ¶Ã¸ÃˆÃ‰ÃŠÃ‹Ã¨Ã©ÃªÃ«Ã‡Ã§ÃŒÃÃÃÃ¬Ã­Ã®Ã¯Ã™ÃšÃ›ÃœÃ¹ÃºÃ»Ã¼Ã¿Ã‘Ã±Âº";
 		$replac = "AAAAAAaaaaaaOOOOOOooooooEEEEeeeeCcIIIIiiiiUUUUuuuuyNn ";
 		return(strtr($cadena,$tofind,$replac));
         }
@@ -74,22 +74,22 @@ class Dineromail {
 
 	private static function getPaymentData($Amount) {
 		$APIUserName = Denko::getConfig('dineromail_usuario');
-		$APIPassword = Denko::getConfig('dineromail_contraseña');
+		$APIPassword = Denko::getConfig('dineromail_contraseÃ±a');
 		$Provider    = Denko::getConfig('dineromail_proveedor');
 		$Currency    = Denko::getConfig('dineromail_moneda');
 
 		$Crypt = false;
-		$MerchantTransactionId = '1';                 // Opcional. Tipo string. Identificador de transacción generado por el comercio requerido para consultas a IPN 3.0.
-		$UniqueMessageId = Denko::getConfig('dineromail_unique_message_id');                        // Opcional. Tipo string. Identificador único de mensaje, no puede repetirse en futuras conexiones.
+		$MerchantTransactionId = '1';                 // Opcional. Tipo string. Identificador de transacciÃ³n generado por el comercio requerido para consultas a IPN 3.0.
+		$UniqueMessageId = Denko::getConfig('dineromail_unique_message_id');                        // Opcional. Tipo string. Identificador Ãºnico de mensaje, no puede repetirse en futuras conexiones.
 		Denko::setConfig('dineromail_unique_message_id',++$UniqueMessageId);
                 $UniqueMessageId.=Denko::getConfig('dineromail_internal_string_id');
 		$Subject = Dineromail::plainText(Dineromail::$subject); // Opcional. Tipo string. Concepto o asunto del comprador hacia el vendedor.
 		$Message = Dineromail::plainText(Dineromail::$message); // Opcional. Tipo string. Mensaje del comprador hacia el vendedor.
 
 		$Code        = '';                                        // Opcional. Tipo string. Identificador generado por el comercio.
-		$Description = Dineromail::plainText(Dineromail::$itemDescription); // Opcional. Tipo string. Descripción del ítem.
-		$ItemName    = Dineromail::plainText(Dineromail::$itemName);        // Requerido. Tipo string. Nombre o titulo del ítem.
-		$Quantity    = Dineromail::$itemQuantity;                 // Requerido. Tipo string. Cantidad del ítem.
+		$Description = Dineromail::plainText(Dineromail::$itemDescription); // Opcional. Tipo string. DescripciÃ³n del Ã­tem.
+		$ItemName    = Dineromail::plainText(Dineromail::$itemName);        // Requerido. Tipo string. Nombre o titulo del Ã­tem.
+		$Quantity    = Dineromail::$itemQuantity;                 // Requerido. Tipo string. Cantidad del Ã­tem.
 
 		$Name     = Dineromail::plainText(Dineromail::$clientName);     // Requerido.
 		$LastName = Dineromail::plainText(Dineromail::$clientLastName); // Requerido.

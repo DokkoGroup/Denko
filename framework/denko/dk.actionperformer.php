@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------+
 
 /**
-* DocumentaciÛn Denko DAOLister ActionPerformer 0.1
+* Documentaci√≥n Denko DAOLister ActionPerformer 0.1
 *
 * ActionPerformer para los DAOListers
 *
@@ -74,7 +74,7 @@ class DK_MultiAction{
     * @var string
     * @access protected
     */
-    var $_noSelectedAlert = 'Debe seleccionar elementos a los cuales aplicar la acciÛn.';
+    var $_noSelectedAlert = 'Debe seleccionar elementos a los cuales aplicar la acci√≥n.';
 
     /**
     * Texto correspondiente a la opcion "-- acciones --"
@@ -121,7 +121,7 @@ class DK_MultiAction{
     /**
     * Retorna el HTML correspondiente al select que contiene las acciones.
     *
-    * @param array $params arreglo de par·metros
+    * @param array $params arreglo de par√°metros
     * @return string
     * @access public
     */
@@ -161,14 +161,14 @@ class DK_MultiAction{
 class DAOActionPerformer{
 
     /**
-    * Muestra una imagen de DB redimensionada. Par·metros:
+    * Muestra una imagen de DB redimensionada. Par√°metros:
     * <ul>
     *   <li>Requeridos:
     *     <ul>
     *       <li>dao: [STRING] nombre del dao que contiene la imagen</li>
-    *       <li>id_dao: [STRING] PK del dao. Ac· se describe como "id_dao", pero
+    *       <li>id_dao: [STRING] PK del dao. Ac√° se describe como "id_dao", pero
     *       en realidad es "id_"+nombre del DAO (por ej, si el DAO se llama
-    *       "foto", el par·metro debe ser "id_foto")</li>
+    *       "foto", el par√°metro debe ser "id_foto")</li>
     *       <li>colimg: [STRING] columna que contiene el DAO.</li>
     *     </ul>
     *   </li>
@@ -177,7 +177,7 @@ class DAOActionPerformer{
     *       <li>width: [STRING] ancho al que se desea redimensionar.</li>
     *       <li>height: [STRING] alto al que se desea redimensionar.</li>
     *       <li>resize: [BOOLEAN] indica se se quiere redimensionar la imagen.</li>
-    *       <li>quality: [INTEGER] porcentaje de calidad en la redimensiÛn.</li>
+    *       <li>quality: [INTEGER] porcentaje de calidad en la redimensi√≥n.</li>
     *     </ul>
     *   </li>
     * </ul>
@@ -223,8 +223,8 @@ class DAOActionPerformer{
     /**
     * Ejecuta el ActionPerformer.
     *
-    * Busca la accion en el GET y la ejecuta. La accion la identificar· en el
-    * GET con el par·metro "action".
+    * Busca la accion en el GET y la ejecuta. La accion la identificar√° en el
+    * GET con el par√°metro "action".
     *
     * @access public
     */

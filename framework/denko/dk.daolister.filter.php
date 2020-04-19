@@ -91,7 +91,7 @@ abstract class DK_DAOListerFilter{
      */
     public function __construct($name,$settings,&$daolister){
         if(empty($settings['type'])){
-            Denko::plugin_fatal_error('el par·metro <b>type</b> es requerido','DK_DAOListerFilter');
+            Denko::plugin_fatal_error('el par√°metro <b>type</b> es requerido','DK_DAOListerFilter');
         }
         $this->_name      = Denko::toValidTagName($name);
         $this->_daolister = $daolister;
@@ -101,7 +101,7 @@ abstract class DK_DAOListerFilter{
     }
 
     /**
-     * Genera el HTMLElement correspondiente al filtro y retorna su cÛdigo HTML.
+     * Genera el HTMLElement correspondiente al filtro y retorna su c√≥digo HTML.
      *
      * @param array $htmlProperties propiedades del objeto.
      * @abstract
@@ -179,7 +179,7 @@ abstract class DK_DAOListerFilter{
 class DK_DAOListerFilterSelect extends DK_DAOListerFilter{
 
     /**
-     * @var string Texto en la opciÛn "mostrar todos"
+     * @var string Texto en la opci√≥n "mostrar todos"
      * @access protected
      * @static
      */
@@ -197,23 +197,23 @@ class DK_DAOListerFilterSelect extends DK_DAOListerFilter{
      *   <li>Requeridos:
      *     <ul>
      *       <li>table: nombre de la tabla (FK en el DAO)</li>
-     *       <li>display: columna de la tabla que se mostrar· en el input.</li>
+     *       <li>display: columna de la tabla que se mostrar√° en el input.</li>
      *       <li>o</li>
-     *       <li>values: valores que adoptar· el select. Est· compuesto de la
+     *       <li>values: valores que adoptar√° el select. Est√° compuesto de la
      *       forma "CLAVE:VALOR|CLAVE:VALOR"</li>
-     *       <li>queryToApply: query que se aplicar·.</li>
+     *       <li>queryToApply: query que se aplicar√°.</li>
      *     </ul>
      *   </li>
      *   <li>Opcionales:
      *     <ul>
      *       <li>queryOnInput: query para los datos del input (solo se aplica
-     *       cuando se haya declarado el par·metro "table").</li>
-     *       <li>showAllText: texto en la opciÛn "-- show all --" (se aplica
+     *       cuando se haya declarado el par√°metro "table").</li>
+     *       <li>showAllText: texto en la opci√≥n "-- show all --" (se aplica
      *       al dkf_input).</li>
      *       <li>autoSubmit: se usa en caso que el filtro se aplique ni bien
      *       cambie de estado (se aplica al dkf_input).</li>
-     *       <li>queryToApply: query que se aplicar· (solo es opcional en caso que NO se
-     *       haya declarado el par·metro "table").</li>
+     *       <li>queryToApply: query que se aplicar√° (solo es opcional en caso que NO se
+     *       haya declarado el par√°metro "table").</li>
      *       <li>orderBy: aplica el orderBy</li>
      *     </ul>
      *   </li>
@@ -249,7 +249,7 @@ class DK_DAOListerFilterSelect extends DK_DAOListerFilter{
             }
             eval('$this->_options = array('.$values.');');
         }
-        // SinÛ, busco las opciones en la DB. para ello deben setear el par·metro 'table' y 'display':
+        // Sin√≥, busco las opciones en la DB. para ello deben setear el par√°metro 'table' y 'display':
         else{
             if(empty($this->_settings['table'])){
                 Denko::plugin_fatal_error('Si no se setea el param <b>values</b>, debe setearse el param <b>table</b>','dkf_declare');
@@ -277,7 +277,7 @@ class DK_DAOListerFilterSelect extends DK_DAOListerFilter{
     }
 
     /**
-     * Genera el HTMLElement correspondiente al filtro y retorna su cÛdigo HTML.
+     * Genera el HTMLElement correspondiente al filtro y retorna su c√≥digo HTML.
      *
      * @param array $htmlProperties propiedades del objeto.
      * @return string
@@ -299,7 +299,7 @@ class DK_DAOListerFilterSelect extends DK_DAOListerFilter{
             $this->_inputElement->addProperty($property,$value);
         }
 
-        // Agrego la opciÛn 'mostrar todos':
+        // Agrego la opci√≥n 'mostrar todos':
         if(empty($htmlProperties['disableShowAllOption'])){
 			$this->_inputElement->addOption('all',isset($htmlProperties['showAllText'])?$htmlProperties['showAllText']:self::$_showAllText,$this->getGETParamValue()==null||$this->getGETParamValue()=='all'?true:false);
         }
@@ -320,7 +320,7 @@ class DK_DAOListerFilterSelect extends DK_DAOListerFilter{
     /**
      * Aplica el filtro al DAOLister
      *
-     * @param DB_DataObject $dao referencia al DAO al cual se aplicar· el filtro
+     * @param DB_DataObject $dao referencia al DAO al cual se aplicar√° el filtro
      * @access public
      */
     public function apply(&$dao){
@@ -353,14 +353,14 @@ class DK_DAOListerFilterText extends DK_DAOListerFilter{
      * <ul>
      *   <li>Requeridos:
      *     <ul>
-     *       <li>queryToApply: query (whereAdd) que se aplicar· al DAO</li>
+     *       <li>queryToApply: query (whereAdd) que se aplicar√° al DAO</li>
      *     </ul>
      *   </li>
      * </ul>
      *
      * @param string $name nombre del filtro
      * @param array $settings seteos para el filtro
-     * @param object &$daolister referencia al DAOLister al que pertenecer· el filtro
+     * @param object &$daolister referencia al DAOLister al que pertenecer√° el filtro
      * @access public
      */
     public function __construct($name,$settings,&$daolister){
@@ -368,7 +368,7 @@ class DK_DAOListerFilterText extends DK_DAOListerFilter{
     }
 
     /**
-     * Genera el HTMLElement correspondiente al filtro y retorna su cÛdigo HTML.
+     * Genera el HTMLElement correspondiente al filtro y retorna su c√≥digo HTML.
      *
      * @param array $htmlProperties propiedades del objeto.
      * @return string
@@ -393,7 +393,7 @@ class DK_DAOListerFilterText extends DK_DAOListerFilter{
     /**
      * Aplica el filtro al DAOLister
      *
-     * @param object &$dao referencia al DAO al cual se aplicar· el filtro
+     * @param object &$dao referencia al DAO al cual se aplicar√° el filtro
      * @access public
      */
     public function apply(&$dao){
@@ -407,7 +407,7 @@ class DK_DAOListerFilterText extends DK_DAOListerFilter{
 }
 
 /**
- * ProveÈ de links para ordenar los resultados de un DAOLister
+ * Prove√© de links para ordenar los resultados de un DAOLister
  *
  * @package DAOLister
  * @subpackage DK_DAOListerOrder
@@ -446,10 +446,10 @@ class DK_DAOListerOrder{
      * <ul>
      *   <li>Requeridos:
      *     <ul>
-     *       <li>column: Columna a la que se tomar· en la condiciÛn de ordenamiento.</li>
-     *       <li>Û</li>
-     *       <li>onAsc:  CondiciÛn que se aplicar· en el ordenamiento ascendente.</li>
-     *       <li>onDesc: CondiciÛn que se aplicar· en el ordenamiento descendente.</li>
+     *       <li>column: Columna a la que se tomar√° en la condici√≥n de ordenamiento.</li>
+     *       <li>√≥</li>
+     *       <li>onAsc:  Condici√≥n que se aplicar√° en el ordenamiento ascendente.</li>
+     *       <li>onDesc: Condici√≥n que se aplicar√° en el ordenamiento descendente.</li>
      *     </ul>
      *   </li>
      * </ul>
@@ -475,7 +475,7 @@ class DK_DAOListerOrder{
     }
 
     /**
-     * Retorna el nombre que tendr· el DAOLister Order en el GET.
+     * Retorna el nombre que tendr√° el DAOLister Order en el GET.
      *
      * @return string
      * @access public
@@ -496,11 +496,11 @@ class DK_DAOListerOrder{
     }
 
     /**
-     * Retorna la URL que hace referencia al documento que mostrar· al DAOLister ordenado
+     * Retorna la URL que hace referencia al documento que mostrar√° al DAOLister ordenado
      *
      * @param string $order indica si el orden es ascendente o descendente
      * @access public
-     * @return string URL que hace referencia al documento que mostrar· al DAOLister ordenado
+     * @return string URL que hace referencia al documento que mostrar√° al DAOLister ordenado
      */
     public function getUrl($order){
 
@@ -520,17 +520,17 @@ class DK_DAOListerOrder{
         # Obtengo el ordenamiento del GET
         $paramValue = $this->getGETParamValue();
 
-        # Obtengo el mÈtodo de ordenamiento
+        # Obtengo el m√©todo de ordenamiento
         $orderMethod = empty($paramValue) ?
             (!empty($this->_settings['default']) ? $this->_settings['default'] : null) :
             ($paramValue == 'a' ? 'asc' : 'desc');
 
-        # En caso que no estÈ seteado, retorno NULL
+        # En caso que no est√© seteado, retorno NULL
         if($orderMethod == null){
             return null;
         }
 
-        # Retorno la string para la condiciÛn "order by"
+        # Retorno la string para la condici√≥n "order by"
         return isset($this->_settings['column']) ?
             ($this->_settings['column'].' '.$orderMethod) :
             $this->_settings[$orderMethod == 'asc' ? 'onAsc' : 'onDesc'];

@@ -31,7 +31,7 @@
 //require_once 'Spreadsheet/Excel/Reader/OLERead.php';
 //require_once 'OLE.php';
 
-# Agregado para entregar m·s tiempo al script, para poder interactuar
+# Agregado para entregar m√°s tiempo al script, para poder interactuar
 # con la clase oleread.php correctamente y para no mostrar errores del
 # tipo Notice.
 require_once 'oleread.php';

@@ -18,9 +18,9 @@
 // +----------------------------------------------------------------------+
 
 /**
- * Documentación Denko GET Parameters Manager 0.1
+ * DocumentaciÃ³n Denko GET Parameters Manager 0.1
  *
- * Manager para los parámetros GET
+ * Manager para los parÃ¡metros GET
  *
  * @link http://www.dokkogroup.com.ar/
  * @copyright Copyright (c) 2007 Dokko Group.
@@ -51,9 +51,9 @@ class DK_GetParamsManager{
     /**
      * Obtiene el Query String del GET.
      *
-     * Ignora las claves que se pasan por parámetro.
+     * Ignora las claves que se pasan por parÃ¡metro.
      *
-     * @param array $ignoreKeys claves en el GET que serán ignoradas
+     * @param array $ignoreKeys claves en el GET que serÃ¡n ignoradas
      * @return string
      * @access public
      * @static
@@ -70,9 +70,9 @@ class DK_GetParamsManager{
     /**
      * Obtengo el PHP_SELF con Query String.
      *
-     * Ignora las claves que se pasan por parámetro.
+     * Ignora las claves que se pasan por parÃ¡metro.
      *
-     * @param array $ignoreKeys claves en el GET que serán ignoradas
+     * @param array $ignoreKeys claves en el GET que serÃ¡n ignoradas
      * @return string
      * @access public
      * @static
@@ -83,14 +83,14 @@ class DK_GetParamsManager{
     }
 
     /**
-     * Retorna la url con el agregado de un parámetro en el GET
+     * Retorna la url con el agregado de un parÃ¡metro en el GET
      *
      * @param string $url url
-     * @param string $param_name nombre del parámetro GET
-     * @param string $param_value valor del parámetro GET
+     * @param string $param_name nombre del parÃ¡metro GET
+     * @param string $param_value valor del parÃ¡metro GET
      * @static
      * @access public
-     * @return string url con el parámetro GET agregado
+     * @return string url con el parÃ¡metro GET agregado
      */
     public static function addParam($url,$param_name,$param_value){
         $explodeUrl = explode('?',$url);
@@ -102,12 +102,12 @@ class DK_GetParamsManager{
     }
 
     /**
-     * Remueve un parámetros de la URL
+     * Remueve un parÃ¡metros de la URL
      *
      * @param string $url url
-     * @param string $param parámetros que remover
+     * @param string $param parÃ¡metros que remover
      * @static
-     * @return string url sin el parámetro
+     * @return string url sin el parÃ¡metro
      */
     public static function removeParam($url,$param){
 
@@ -126,9 +126,8 @@ class DK_GetParamsManager{
             $params[] = $get_param;
         }
 
-        # Retorno la url sin el parámetro
+        # Retorno la url sin el parÃ¡metro
         return substr($url,0,$ampPos).'?'.implode('&',$params) ;
     }
 }
 ################################################################################
-?>

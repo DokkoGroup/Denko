@@ -19,7 +19,7 @@
 
 
 /**
- * DocumentaciÛn Denko Elemento HTML 0.1
+ * Documentaci√≥n Denko Elemento HTML 0.1
  *
  * Elemento HTML
  *
@@ -92,7 +92,7 @@ class DK_HTMLElement {
     var $_isBlock = true;
     
     /**
-     * CÛdigo HTML interno en el HTMLElement (solo si el elemento es bloque)
+     * C√≥digo HTML interno en el HTMLElement (solo si el elemento es bloque)
      *
      * @var string
      * @access protected
@@ -103,7 +103,7 @@ class DK_HTMLElement {
      * Constructora de la clase
      *
      * @param string $token etiqueta del elemento
-     * @param boolean $isBlock indica si el elemento ser· un bloque
+     * @param boolean $isBlock indica si el elemento ser√° un bloque
      * @access public
      */
     function DK_HTMLElement($token, $isBlock = true) {
@@ -115,14 +115,14 @@ class DK_HTMLElement {
      * Agrega un evento javascript al elemento
      *
      * @param string $jsEvent nombre del evento
-     * @param string $jsCode cÛdigo javascript que ejecutar·
+     * @param string $jsCode c√≥digo javascript que ejecutar√°
      * @access public
      */
     function addJsEvent($jsEvent, $jsCode) {
         $jsEvent = strtolower($jsEvent);
         
         /**
-         * Si el evento no est· registrado, creo la entrada en el arreglo
+         * Si el evento no est√° registrado, creo la entrada en el arreglo
          *
          * @ignore
          */
@@ -130,7 +130,7 @@ class DK_HTMLElement {
             $this->_jsEvents [$jsEvent] = array ();
         }
         /**
-         * Adjunto el cÛdigo javascript para el evento
+         * Adjunto el c√≥digo javascript para el evento
          *
          * @ignore
          */
@@ -188,7 +188,7 @@ class DK_HTMLElement {
     /**
      * Remueve todas las propiedades del elemento
      *
-     * @param array $ignoreProperties propiedades que no se eliminar·n.
+     * @param array $ignoreProperties propiedades que no se eliminar√°n.
      * @access public
      */
     function removeAllProperties($ignoreProperties = array()) {
@@ -221,11 +221,11 @@ class DK_HTMLElement {
     }
 
     /**
-     * Setea el cÛdigo HTML interno en el objeto.
+     * Setea el c√≥digo HTML interno en el objeto.
      *
      * Solo funciona si el objeto es un bloque.
      *
-     * @param string $html cÛdigo HTML
+     * @param string $html c√≥digo HTML
      * @access public
      */
     function setInnerHtml($html) {
@@ -233,7 +233,7 @@ class DK_HTMLElement {
     }
 
     /**
-     * Retorna el cÛdigo HTML correspondiente al elemento
+     * Retorna el c√≥digo HTML correspondiente al elemento
      *
      * @return string
      * @access public
@@ -274,7 +274,7 @@ class DK_HTMLOption extends DK_HTMLElement {
      *
      * @param string $value valor del option
      * @param string $text texto del option
-     * @param boolean $selected indica si tendr· la propiedad "selected"
+     * @param boolean $selected indica si tendr√° la propiedad "selected"
      * @access public
      */
     function DK_HTMLOption($value, $text, $selected = false) {
@@ -294,7 +294,7 @@ class DK_HTMLOption extends DK_HTMLElement {
 class DK_HTMLSelect extends DK_HTMLElement {
     
     /**
-     * Arreglo que contendr· los elementos correspondientes a los options
+     * Arreglo que contendr√° los elementos correspondientes a los options
      *
      * @var array
      * @access protected
@@ -317,7 +317,7 @@ class DK_HTMLSelect extends DK_HTMLElement {
      *
      * @param string $value valor del Option
      * @param string $text texto del Option
-     * @param boolean $selected indica si tendr· la propiedad "selected"
+     * @param boolean $selected indica si tendr√° la propiedad "selected"
      * @access public
      */
     function addOption($value, $text, $selected = false) {

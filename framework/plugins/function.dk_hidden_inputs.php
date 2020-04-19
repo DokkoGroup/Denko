@@ -7,14 +7,14 @@ require_once '../denko/dk.html.element.php';
 function smarty_function_dk_hidden_inputs($params, &$smarty){
 
     /**
-     * Si el GET est· vacÌo ni me preocupo
+     * Si el GET est√° vac√≠o ni me preocupo
      */
     if(empty($_SERVER['QUERY_STRING'])){
         return '';
     }
 
     /**
-     * Preparo el arreglo con los par·metros GET que se ignorar·n
+     * Preparo el arreglo con los par√°metros GET que se ignorar√°n
      */
     $ignoreInputs = array();
     if(!empty($params['ignore'])){
@@ -22,7 +22,7 @@ function smarty_function_dk_hidden_inputs($params, &$smarty){
     }
 
     /**
-     * Separo el Query String en par·metros
+     * Separo el Query String en par√°metros
      */
     $html = '';
     $getparams = explode('&',$_SERVER['QUERY_STRING']);

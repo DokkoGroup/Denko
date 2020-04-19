@@ -20,7 +20,7 @@ class PHPCalc {
 
     /*
     *
-    * @param string $metadata (JSON representando la planilla de cálculo.
+    * @param string $metadata (JSON representando la planilla de cÃ¡lculo.
     */
     public function __construct ($metadata, $height = null, $width = null) {
         $sheet = json_decode ($metadata, true);
@@ -103,20 +103,20 @@ class PHPCalc {
             throw new Exception("Celda [$col:$fil] inexistente.");
         }
         if ($this->sheet[$fil][$col]['valor'] == self::$recursionControl) {
-            throw new Exception("Recursión que incluye la celda [$col:$fil].");
+            throw new Exception("RecursiÃ³n que incluye la celda [$col:$fil].");
         }
 
         if ($this->sheet[$fil][$col]['valor'] != self::$invalidCell && $this->sheet[$fil][$col]['valor'] != self::$noVisibleCell) {
-            //TODO: Verificar tipo de celda y luego aplicar validación de tipo de dato usando el validate de pear;
+            //TODO: Verificar tipo de celda y luego aplicar validaciÃ³n de tipo de dato usando el validate de pear;
             if (!empty($this->sheet[$fil][$col]['valor'])) return $this->sheet[$fil][$col]['valor'];
 
-            //Si tiene fórmula asociada calculo el valor
+            //Si tiene fÃ³rmula asociada calculo el valor
             if (!empty($this->sheet[$fil][$col]['formula'])) {
                 $this->calculateCell ($fil, $col);
             }
         }
         if ($this->sheet[$fil][$col]['valor'] == self::$invalidCell) {
-            throw new Exception("Valor de celda [$col:$fil] inválido");
+            throw new Exception("Valor de celda [$col:$fil] invÃ¡lido");
         }
         if ($this->sheet[$fil][$col]['valor'] == self::$noVisibleCell) {
             throw new Exception("Celda no visible [$col:$fil].");

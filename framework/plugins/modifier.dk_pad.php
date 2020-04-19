@@ -12,7 +12,7 @@
  * <br>
  * Name: dk_pad
  * <br>
- * Purpose: Rellena una cadena de texto con caracteres, utilizando la función dk_pad de PHP
+ * Purpose: Rellena una cadena de texto con caracteres, utilizando la funciÃ³n dk_pad de PHP
  *
  * @author Dokko Group Developers Team <info at dokkogroup dot com>
  * @link http://wiki.dojo/index.php/Denko%20Plugin%3A%20modificador%20dk_pad {dk_pad} (Denko wiki)
@@ -27,4 +27,3 @@ function smarty_modifier_dk_pad($string , $longitud_relleno = 5, $cadena_relleno
     return str_pad($string,$longitud_relleno,$cadena_relleno,$tipo_relleno);
 }
 ################################################################################
-?>

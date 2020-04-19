@@ -1,22 +1,22 @@
 <?php
 /**
  * Funcion que retorna el html para mostrar una imagen en DB.
- * Par·metros obligatorios:
+ * Par√°metros obligatorios:
  * - imageDB: ID de la imagen.
- * - thumb: indica la imagen que mostrar·:
- *   En caso de THUMBNAIL, el parametro ser· 'true'
- *   En caso de STREAM, el parametro ser· 'false'
- *   Los par·metros extras ser·n agregados como propiedades a la imagen.
+ * - thumb: indica la imagen que mostrar√°:
+ *   En caso de THUMBNAIL, el parametro ser√° 'true'
+ *   En caso de STREAM, el parametro ser√° 'false'
+ *   Los par√°metros extras ser√°n agregados como propiedades a la imagen.
  */
 function smarty_function_dk_link_imgoutover($params, &$smarty){
     if(empty($params['url'])){
-        Denko::plugin_fatal_error('El par·metro <b>url</b> es requerido.','dk_link_imgoutover');
+        Denko::plugin_fatal_error('El par√°metro <b>url</b> es requerido.','dk_link_imgoutover');
     }
     if(empty($params['imgout'])){
-        Denko::plugin_fatal_error('El par·metro <b>imgout</b> es requerido.','dk_link_imgoutover');
+        Denko::plugin_fatal_error('El par√°metro <b>imgout</b> es requerido.','dk_link_imgoutover');
     }
     if(empty($params['imgover'])){
-        Denko::plugin_fatal_error('El par·metro <b>imgover</b> es requerido.','dk_link_imgoutover');
+        Denko::plugin_fatal_error('El par√°metro <b>imgover</b> es requerido.','dk_link_imgoutover');
     }
     if (!isset($GLOBALS['BUTTONIMAGE-ID'])){
         $GLOBALS['BUTTONIMAGE-ID']=0;

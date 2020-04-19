@@ -89,10 +89,10 @@ class Fecha{
 
     /**
      * sumarDias
-     * Retorna la suma de dÌas a una fecha determinada
+     * Retorna la suma de d√≠as a una fecha determinada
      *
-     * @param string $cantDias cantidad de dÌas que sumar
-     * @param string $fecha fecha a la cual sumar los dÌas
+     * @param string $cantDias cantidad de d√≠as que sumar
+     * @param string $fecha fecha a la cual sumar los d√≠as
      * @static
      * @access public
      * @return string (Y-m-d)
@@ -264,7 +264,7 @@ class Hora{
      *
      * @param string $ha hora en formato TIME
      * @param string $hb hora en formato TIME
-     * @param boolean $overflow indica si el resultado har· overflow pasadas las 23:59:59
+     * @param boolean $overflow indica si el resultado har√° overflow pasadas las 23:59:59
      * @static
      * @access public
      * @return string
@@ -279,7 +279,7 @@ class Hora{
      *
      * @param string $ha hora en formato TIME
      * @param string $hb hora en formato TIME
-     * @param boolean $overflow indica si el resultado har· overflow pasadas las 23:59:59
+     * @param boolean $overflow indica si el resultado har√° overflow pasadas las 23:59:59
      * @static
      * @access public
      * @return string
@@ -294,7 +294,7 @@ class Hora{
      *
      * @param string $ha hora en formato TIME
      * @param string $hb hora en formato TIME
-     * @param boolean $overflow indica si el resultado har· overflow pasadas las 23:59:59
+     * @param boolean $overflow indica si el resultado har√° overflow pasadas las 23:59:59
      * @static
      * @access public
      * @return string
@@ -311,7 +311,7 @@ class Hora{
      * Retorna la hora en formato TIME correspondiente a una determinada cantidad de segundos
      *
      * @param integer $segs segundos
-     * @param boolean $overflow indica si el resultado har· overflow pasadas las 23:59:59
+     * @param boolean $overflow indica si el resultado har√° overflow pasadas las 23:59:59
      * @static
      * @access public
      * @return string
@@ -332,7 +332,7 @@ class Hora{
 
     /**
      * hora2segs
-     * Retorna la cantidad de segundos correspondientes a una string con notaciÛn TIME (HH:MM Û HH:MM:SS)
+     * Retorna la cantidad de segundos correspondientes a una string con notaci√≥n TIME (HH:MM √≥ HH:MM:SS)
      *
      * @param string $hora hora con formato TIME
      * @static
@@ -342,7 +342,7 @@ class Hora{
     public static function hora2segs($hora){
         $h = explode(':',$hora);
 
-        # En caso que no tenga ni la separaciÛn ':' entre horas y minutos
+        # En caso que no tenga ni la separaci√≥n ':' entre horas y minutos
         if(count($h) < 2){
             return null;
         }
@@ -352,7 +352,7 @@ class Hora{
             $h[] = '00';
         }
 
-        # Hago la conversiÛn y retorno el resultado
+        # Hago la conversi√≥n y retorno el resultado
         return (intval($h[2]) + (intval($h[1]) * 60) + (intval($h[0]) * 3600));
     }
 

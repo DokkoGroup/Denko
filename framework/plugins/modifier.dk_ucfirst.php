@@ -12,7 +12,7 @@
  * <br>
  * Name: dk_ucfirst
  * <br>
- * Purpose: Convierte a mayúsculas el primer caracter de una cadena de texto
+ * Purpose: Convierte a mayÃºsculas el primer caracter de una cadena de texto
  *
  * @author Dokko Group Developers Team <info at dokkogroup dot com>
  * @link http://wiki.dojo/index.php/Denko%20Plugin%3A%20modificador%20dk_ucfirst {dk_ucfirst} (Denko wiki)
@@ -25,4 +25,3 @@ function smarty_modifier_dk_ucfirst($string,$charset = 'UTF-8'){
     return Denko::ucfirst($string,$charset);
 }
 ################################################################################
-?>

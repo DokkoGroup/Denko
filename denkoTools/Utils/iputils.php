@@ -47,17 +47,17 @@ class IpUtils {
             return false;
         }
     }
-    
+
     /**
-	 * Retorna la IP del cliente y verifica que no sea una IP reservada 
-	 * 
-     * @param string $name nombre de la configuraci髇 a agregar
-	 * @param string $value valor de la configuraci髇 a agregar
-     * @param int $indice1 valor del campo indice1 de la configuraci髇 a agregar
-     * @param int $indice2 valor del campo indice2 de la configuraci髇 a agregar
+	 * Retorna la IP del cliente y verifica que no sea una IP reservada
+	 *
+     * @param string $name nombre de la configuraci贸n a agregar
+	 * @param string $value valor de la configuraci贸n a agregar
+     * @param int $indice1 valor del campo indice1 de la configuraci贸n a agregar
+     * @param int $indice2 valor del campo indice2 de la configuraci贸n a agregar
 	 * @static
 	 * @access public
-	 * @return int el n鷐ero de filas afectadas o falso en caso de error
+	 * @return int el n煤mero de filas afectadas o falso en caso de error
 	 */
     function getip() {
         if (isset ($_SERVER["HTTP_CLIENT_IP"]) && IpUtils::validIp($_SERVER["HTTP_CLIENT_IP"])) {

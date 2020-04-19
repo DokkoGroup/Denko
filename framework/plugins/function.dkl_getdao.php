@@ -6,9 +6,9 @@
  * @param Smarty $smarty
  */
 function smarty_function_dkl_getdao($params,&$smarty){
-    // Chequeo que estÈ seteado el par·metro 'nombre'
+    // Chequeo que est√© seteado el par√°metro 'nombre'
     if(empty($params['assign'])){
-        Denko::plugin_fatal_error('el par·metro <b>assign</b> es requerido','dkl_getdao');
+        Denko::plugin_fatal_error('el par√°metro <b>assign</b> es requerido','dkl_getdao');
     }
 
     // Obtengo el DAOLister

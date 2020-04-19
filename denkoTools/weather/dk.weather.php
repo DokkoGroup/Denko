@@ -3,7 +3,7 @@
  * Denko Weather
  *
  * File: dk.weather.php
- * Purpose: Obtener y mostrar el clima de la región
+ * Purpose: Obtener y mostrar el clima de la regiÃ³n
  *
  * @copyright 2007-2009 Dokko Group
  * @author Santax & Dokko Group <info at dokkogroup dot com dot ar>
@@ -18,7 +18,7 @@ require_once '../denko/dk.denko.php';
 class DK_Weather extends XML_Parser{
 
     protected $dia;
-    
+
     /**
      *
      */
@@ -63,7 +63,7 @@ class DK_Weather extends XML_Parser{
         $parsed_ini_file = parse_ini_file(self::$path_speechfile,true);
         $this->weatherSpeech = array_values($parsed_ini_file['speech']);
 
-        # Seteo el código para el weather de Yahoo! para Tandil
+        # Seteo el cÃ³digo para el weather de Yahoo! para Tandil
         $this->city_code = $parsed_ini_file['config']['city_code'];
 
         # Seteo el XML de entrada
@@ -88,7 +88,7 @@ class DK_Weather extends XML_Parser{
     }
 
     /**
-     * Genera el XML que tendrá los datos del clima
+     * Genera el XML que tendrÃ¡ los datos del clima
      *
      * @access public
      * @return void
@@ -97,8 +97,8 @@ class DK_Weather extends XML_Parser{
 
         # Armo la URL del forecast
         $url = self::$url_forecast.'?u=c&p='.$this->city_code;
-		
-        # Si hubo un error no guardo nada y me quedo con la última versión.
+
+        # Si hubo un error no guardo nada y me quedo con la Ãºltima versiÃ³n.
         if(!Denko::url_exists($url) || ($content = file_get_contents($url)) === false || $content == ''){
             exit;
         }
@@ -117,7 +117,7 @@ class DK_Weather extends XML_Parser{
         switch($name){
             case 'YWEATHER:FORECAST':
                 if(isset($this->weatherData['HOY'])){
-                    $this->dia = 'MAÑANA';
+                    $this->dia = 'MAÃ‘ANA';
                 }
                 $this->weatherData[$this->dia]['DATE'] = base64_encode($attribs['DATE']);
                 $this->weatherData[$this->dia]['HIGH'] = base64_encode($attribs['HIGH']);
@@ -192,10 +192,10 @@ class DK_Weather extends XML_Parser{
             <CODE>'.$this->weatherData['HOY']['CODE'].'</CODE>
         </HOY>
         <MANIANA>
-            <DATE>'.$this->weatherData['MAÑANA']['DATE'].'</DATE>
-            <HIGHT>'.$this->weatherData['MAÑANA']['HIGH'].'</HIGHT>
-            <LOW>'.$this->weatherData['MAÑANA']['LOW'].'</LOW>
-            <CODE>'.$this->weatherData['MAÑANA']['CODE'].'</CODE>
+            <DATE>'.$this->weatherData['MAÃ‘ANA']['DATE'].'</DATE>
+            <HIGHT>'.$this->weatherData['MAÃ‘ANA']['HIGH'].'</HIGHT>
+            <LOW>'.$this->weatherData['MAÃ‘ANA']['LOW'].'</LOW>
+            <CODE>'.$this->weatherData['MAÃ‘ANA']['CODE'].'</CODE>
         </MANIANA>
     </channel>
 </rss>
