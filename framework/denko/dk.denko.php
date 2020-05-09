@@ -228,10 +228,8 @@ class Denko{
 		else $folder=DENKO_WEB_FOLDER;
 		$arr=explode($folder.'/',$link);
 		if(count($arr)==1) $arr[0]='';
-		if($folder!='/web'){
-			if(Denko::getHost()=='localhost') $arr[0].=$folder;
-			else $arr[0]='';
-		}
+		if(Denko::getHost()=='localhost') $arr[0].=$folder;
+		else $arr[0]='';
 		$arr=explode("/index.php/",$arr[0]);
 		$link=self::getRequestScheme().'://'.Denko :: getHost().$arr[0];
 		if($link[strlen($link)-1]!='/'){
