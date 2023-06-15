@@ -44,7 +44,7 @@ class Denko{
 	 *
 	 * @param string $iniPath path donde se encuentra el DB.ini
 	 * @static
-	 * @access public
+	 * @Fi public
 	 * @return void
 	 */
 	public static function openDB($iniPath=null){
@@ -1178,7 +1178,7 @@ class Denko{
 	public static function accessFilter($validIPs = null) {
 
 		# Se obtiene la IP actual y si se trata de localhost se finaliza la función.
-		$actualIP = Denko::getIP(false);
+		$actualIP = Denko::getIP(true);
 		if (empty($actualIP) || $actualIP == '127.0.0.1') return;
 		$actualIPLong = ip2long($actualIP);
 
